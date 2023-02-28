@@ -1,16 +1,16 @@
-const a = 20;
+// const a = 20;
 
-const multiply = (a, b) => {
-    console.log(`multiplication of numbers are ${a*b}`);
-};
+// const multiply = (a, b) => {
+//     console.log(`multiplication of numbers are ${a*b}`);
+// };
 
-const add = (a, b) => {
-    console.log(`addition of numbers are ${a+b}`);
-};
+// const add = (a, b) => {
+//     console.log(`addition of numbers are ${a+b}`);
+// };
 
-const subtract = (a,b) => {
-    console.log(`substraction of numbers are ${a+b}`);
-};
+// const subtract = (a,b) => {
+//     console.log(`substraction of numbers are ${a+b}`);
+// };
 
 // module.exports = {
 //     multiply: multiply,
@@ -19,11 +19,11 @@ const subtract = (a,b) => {
 // };
 
 //object shortend syntax
-module.exports = {
-    multiply,
-    add,
-    subtract,
-};
+// module.exports = {
+//     multiply,
+//     add,
+//     subtract,
+// };
 
 
 //ES6 modules

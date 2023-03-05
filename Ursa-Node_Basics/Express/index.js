@@ -604,6 +604,7 @@ app.delete('/products/:id', (req,res) => {
     );
     if(elementIndex !== -1) product.splice(elementIndex, 1)
 res.send(product);
+
 })
 
 

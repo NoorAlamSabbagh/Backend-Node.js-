@@ -79,7 +79,8 @@ module.exports = {
 
   //
 //2)
-const {getProductData, addProductsInData,updateProductsInData} = require('../models/productModel')//import kiya 
+
+/*const {getProductData, addProductsInData,updateProductsInData} = require('../models/productModel')//import kiya 
 //is product ko hata kar model ke under ek product model ka function banaya ab waha se product lenge
 
 const getAllProducts = (req, res) => {
@@ -128,3 +129,4 @@ module.exports = {
     updateProduct,
     deleteProduct,
   };
+  */

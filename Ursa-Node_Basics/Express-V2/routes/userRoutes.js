@@ -13,7 +13,6 @@ router.get('/user/all', (req, res) => {
 module.exports = router
 
 
-
 //
 // user route
 // app.route('/user/:id')

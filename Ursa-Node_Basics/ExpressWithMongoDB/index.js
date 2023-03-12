@@ -1,11 +1,10 @@
 //<========================Lec14March4:MongoDB=============================================>
 const express = require('express');
-const app = express();
 
 const dotenv = require("dotenv");
 dotenv.config();
-
-const userRoute = require('./src/routes/userRoutes')//to connectuserRoutes
+const app = express();
+const userRoute = require("./src/routes/userRoutes");//to connectuserRoutes
 
 app.use(express.json())
 

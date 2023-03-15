@@ -1,3 +1,5 @@
+//<======================Lec18March12-Better Folder Structure=================================>
+/*
 const express = require("express");
 const {
   getUserList,
@@ -40,4 +42,36 @@ module.exports = router;
 //     a: 10,
 //     b:20
 // }
+*/
 //<======================End: Lec18March12===================================>
+
+
+
+
+//<======================Lec19March14-Updating a document -update first Scale your Ecommerce data=================================>
+//Is lec19 me srif updateUser Routes ka code likha ha bs
+
+const express = require("express");
+const {
+  getUserList,
+  createUser,
+  getUserAddress,
+  getUserOrders,
+  getUser,
+  updateUser,
+} = require("../controllers/userControllers");
+
+const router = express.Router();
+
+// http://localhost/5800/user
+router.get("/", getUserList); //reading user list
+router.get("/singleUser", getUser);
+router.post("/", createUser);
+router.get("/address", getUserAddress);
+router.get("/orders", getUserOrders);
+// router.patch("/:id", updateUser);
+router.patch("/:email", updateUser);
+
+module.exports = router;
+
+//<======================End: Lec19March14=================================>

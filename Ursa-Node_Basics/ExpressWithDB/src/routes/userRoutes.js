@@ -59,6 +59,7 @@ const {
   getUserOrders,
   getUser,
   updateUser,
+  deleteUser,
 } = require("../controllers/userControllers");
 
 const router = express.Router();
@@ -71,6 +72,8 @@ router.get("/address", getUserAddress);
 router.get("/orders", getUserOrders);
 // router.patch("/:id", updateUser);
 router.patch("/:email", updateUser);
+//lec20
+router.delete('/:id', deleteUser)
 
 module.exports = router;
 

@@ -5,8 +5,12 @@ const {getUserList} = require("./src/controllers/userControllers");
 const app = express();
 
 const userRouter = require('./src/routes/userRoutes')
+//lec20
+const productRouter = require('./src/routes/productRoute')
+
 app.use(express.json())//middleware to read your json from your postman and console it on your terminal as obj
 app.use('/user', userRouter)
+app.use('/product', productRouter)
 require('./dbConnection')//dbConnection ko connect kiya
 // http://localhost/5800
 

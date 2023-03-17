@@ -99,7 +99,7 @@ const createProduct = (req, res) => {
 };
 
 //product ko update kar diya jaise price by patch (http://localhost:8000/products/3) at postman
-//Lakin is  code me MVC nhi use kar rahe ha so we use othe code
+//Lakin is  code me MVC nhi use kar rahe ha so we use other code
 // const updateProduct = (req, res) => {
 //     console.log("params in updateProduct", req.params);//re.params is always object
 //     const { id } = req.params;

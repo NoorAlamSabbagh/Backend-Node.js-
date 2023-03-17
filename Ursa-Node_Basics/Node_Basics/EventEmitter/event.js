@@ -1,5 +1,6 @@
 //<===========================================================>//
 // Lec6Feb22: Creating and working files, Events module, Emitting Events
+
 /*
 const Event = require('events');
 
@@ -18,14 +19,14 @@ Login.addListener('error', () => {
 //  Login.emit('success');//alam
 //  Login.emit('success');//noor
  Login.emit('error');
- */
-
+ Login.emit('success');
+ 
+*/
  //
 /*
 const Event = require('events');
 
 const Login = new Event();//evenlistner
-const SignUp = new Event()//evenlistner
 
 Login.addListener('success', (username, country) => {//callback
     console.log(`${username} logged in successfully ${country}`);
@@ -42,13 +43,14 @@ Login.addListener('error', () => {
 */
 
 //
-/*
+
 const Event = require('events');
 
 const Login = new Event();//evenlistner
 const SignUp = new Event()//evenlistner
 
 //1 Listener
+/*
 Login.addListener('success', (username, country) => {//callback
     console.log(`${username} logged in successfully ${country}`);
 })
@@ -68,6 +70,7 @@ Login.addListener('error', () => {
 //  Login.emit('error');
 //output 2 logged
 */
+
 
 //
 /*
@@ -124,7 +127,7 @@ Login.addListener('error', () => {
 
 //<===========================================================>//
 // Lec7Feb23: Creating and working files, Events module, Emitting Events
-const Event = require('events');
+// const Event = require('events');
 
 //
 // const SignUp = new Event();

@@ -6,19 +6,19 @@ const userSchema = new Schema(
     name: {
       type: String,
       required: true,
-      minLength: 6,
+      // minLength: 6,
     },
     email: {
       type: String,
       required: true,
-      minLength: 8,
-      maxLength: 25,
+      // minLength: 8,
+      // maxLength: 25,
     },
     password: {
       type: String,
       required: true,
-      minLength: 6,
-      maxLength: 15,
+      // minLength: 6,
+      // maxLength: 15,
     },
     mobile: {
       type: Number,

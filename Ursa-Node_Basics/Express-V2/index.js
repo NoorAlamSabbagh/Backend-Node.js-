@@ -7,7 +7,7 @@ const app = express();
 
 const {checkLogInStatus} = require('./middleware');
 
-app.use(checkLogInStatus)
+app.use(checkLogInStatus)//middleware ki tarah use kiya
 
 app.get ('/product', (req,res) =>{
     console.log('inside product route');
@@ -27,9 +27,74 @@ app.get ('/orders', (req,res) =>{
 app.listen(5800, () =>{
     console.log(`app running at 5800`)
 })
+//Iske baad midleware me code likha
 */
 
+//check code in middleware 2 code to realted this code
 //2)
+/*
+const express = require('express');
+
+const app = express();
+
+const {checkLogInStatus, checkUser} = require('./middleware');
+
+app.use(checkUser)
+
+app.get ('/product', (req,res) =>{
+    console.log('inside product route');
+    res.send('product page')
+})
+
+app.use(checkLogInStatus);
+
+app.get ('/profile', (req,res) =>{
+    console.log('inside profile route');
+    res.send('profile page')
+})
+
+app.get ('/orders', (req,res) =>{
+    console.log('inside order route');
+    res.send('orders page')
+})
+
+app.listen(5800, () =>{
+    console.log(`app running at 5800`)
+})
+*/
+
+//
+/*
+const express = require('express');
+
+const app = express();
+
+const {checkLogInStatus, checkUser} = require('./middleware');
+
+app.use(checkUser)
+
+app.get ('/product', (req,res) =>{
+    console.log('inside product route');
+    res.send('product page')
+})
+
+
+app.get ('/profile',checkLogInStatus, (req,res) =>{
+    console.log('inside profile route');
+    res.send('profile page')
+})
+
+app.get ('/orders',checkLogInStatus, (req,res) =>{
+    console.log('inside order route');
+    res.send('orders page')
+})
+
+app.listen(5800, () =>{
+    console.log(`app running at 5800`)
+})
+*/
+
+//
 /*
 const express = require('express');
 
@@ -58,6 +123,7 @@ const {checkLogInStatus, checkUser} = require('./middleware');
 
 //using Route for same code of get,post, patch as above code written
 //product route
+// http://localhost:5800/product/2
 app.route('/product/:id')
 .get((req, res) => {
     res.send('product page-- GET')
@@ -72,6 +138,7 @@ app.route('/product/:id')
 
 //
 //user Route
+// http://localhost:5800/user/2
 app.route('/user/:id')
 .get((req, res) => {
     res.send('product page-- GET')
@@ -108,8 +175,9 @@ const app = express();
 const dotEnv = require('dotenv')
 dotEnv.config();
 
+
 const {checkLogInStatus, checkUser} = require('./middleware');
-// app.use(checkUser)//agar sabke liye chalana ha to middleware ko top pe rakho
+app.use(checkUser)//agar sabke liye chalana ha to middleware ko top pe rakho
 // app.use(checkLogInStatus)
 // express.static-->middleware to serve static files
 
@@ -174,11 +242,10 @@ app.listen(PORT, () =>{
 })
 
 // 
-// I am hiding my port
+// I am hiding my port using dotenv (npm i dotenv --save)
 // app.listen(process.env.PORT, () =>{
 //     console.log(`app running at ${process.env.PORT}`)//maine bs 
 // })
-
 */
 
 // <===============End of Lec11March1===============>//
@@ -191,6 +258,7 @@ app.listen(PORT, () =>{
 // <======================Lec12March2-Introducing routes and Router, middleware in express,mvc architecture==========>
 
 // 1)
+/*
 const express = require('express');
 
 const app = express();
@@ -266,3 +334,4 @@ app.listen(PORT, () =>{
 // app.listen(process.env.PORT, () =>{
 //     console.log(`app running at ${process.env.PORT}`)//maine bs 
 // })
+*/

@@ -778,6 +778,7 @@ app.post('/divide', (req, res) => {
 
 
 // <===============Lec11March1: Building Restful API using Express-CRUD for Ecommerce API===============>//
+//PATCH aur DELETE ka code likha
 /*
 const express = require("express");
 
@@ -901,6 +902,7 @@ app.put('/products/:id', (req, res) => {
     res.send(product);
 })
 
+//sara code same ha bs yaha patch aur delete ka code likha
 // patch --> updates the only value passed in request data
 app.patch('/products/:id', (req, res) => {
     console.log('params in put req', req.params);
@@ -911,17 +913,19 @@ app.patch('/products/:id', (req, res) => {
     );
     // update the only key in the element
     if (elementIndex !== -1)
- product [elementIndex] = {...product[elementIndex], ...req.body};
+ product [elementIndex] = {...product[elementIndex], ...req.body};//
 res.send(product)
 })
 
+
+//http://localhost:5500/products/3 maine id:3 delete kiya 
 app.delete('/products/:id', (req,res) => {
     console.log('params in delete req', req.params);
     // find the element using req.params and delete it
     const elementIndex = product.findIndex(
       (el) => el.id === Number(req.params.id)
     );
-    if(elementIndex !== -1) product.splice(elementIndex, 1)
+    if(elementIndex !== -1) product.splice(elementIndex, 1)//splice make changes in the same array whereas slice return new array
 res.send(product);
 
 })
@@ -938,6 +942,21 @@ const PORT = 5500;
 app.listen(PORT, () => {
   console.log(`express server running at ${PORT}`);
 });
-*/
 
+*/
 // <===============End of Lec11March1===============>//
+//iske baad middleware padha 
+//Express-V2 ka folder banaya usme index aur middleware ka file banaya
+//npm i nodemon --save-dev
+//npm i express commond use kiya use file me
+//phele Express-V2 me index js me route banaya fir Express-V2 me Middleware me code likha
+//MIDDLEWARE
+// middleware is a piece of code that is used in between request and response
+//middleware functions are functions that have access to the request object, response object, and the next function in the application 
+// request response cycle
+
+// to get the data from client where body is in form of json
+// app.use(express.json());
+
+// to get the data from a form which will have the format as urlencoded
+// app.use(express.urlencoded());//when to use urlencoded??);

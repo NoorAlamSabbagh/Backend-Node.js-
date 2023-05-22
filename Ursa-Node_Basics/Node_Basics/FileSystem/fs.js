@@ -1,28 +1,27 @@
-//<===========================================================>//
-// Lec5Feb21: Using Core Module, OS Module
+//<============================Lec5Feb21: Using Core Module, OS Module===============================>//
 // File system CRUD
 
-const fs = require("fs");
-// const { clearScreenDown } = require("readline");
-
+// const fs = require("fs");
 // const fsPromise = require('fs/promises');//(most latest way of handelling promises)
 
-/*
-//
-// working with Directories
-//below code create new directory
+// const { clearScreenDown } = require("readline");
+
+
+// // working with Directories
+// // below code create new directory
 // fs.mkdir('new', (err) => {
 //     console.log(err);
 // })
 
-//
+
 // fs.mkdir('FileSystem/new', (err) => {
 //     console.log(err);
 // })
 
 //
+// const fs = require("fs");
 // console.log('start');
-// fs.mkdir('FileSystem/myDir/alam', {recursive: true}, (err) => {
+// fs.mkdir('myDir/alam', {recursive: true}, (err) => {//for multiple directory we use recursive
 //     if(err){
 //         console.log(err);
 // }else{
@@ -31,10 +30,9 @@ const fs = require("fs");
 // });
 // console.log('end');
 
-
-//agar upar wala hi code sync method se karu 
-console.log('start');
-// fs.mkdir('FileSystem/myDir/alam', {recursive: true}, (err) => {
+// // agar upar wala hi code sync method se karu
+// console.log('start');
+// fs.mkdir('myDir/alam', {recursive: true}, (err) => {
 //     if(err){
 //         console.log(err);
 // }else{
@@ -42,14 +40,30 @@ console.log('start');
 // }
 // });
 
-
+//
 // sycronous execution of mkdir
-fs.mkdirSync('FileSystem/my')                     
-console.log('end');
-*/
+// const fs = require("fs");
+// fs.mkdirSync('my')//already file ha isliye aage ka code run nhi karega
+// console.log('end');
 
 //
-// fs.readdir('Filesystem', (e, files) => {
+//Read Directory operation
+// const fs = require("fs");
+// fs.readdir("my", (e, files) => {
+//   if (e) {
+//     console.log(`error occured: ${e.message}`);
+//   } else {
+//     console.log("getting files here");
+//     console.log(files);
+//   }
+// });
+
+//<============================END: Lec5Feb21_Using Core Module, OS Module===============================>//
+
+//
+//<============================Lec6Feb21_Creating and writing files,Events Module, Emmiting Module Module===============================>//
+// const fs = require("fs");
+// fs.readdir('new', (e, files) => {
 //     if(e){
 //         console.log(`error occured: ${e.message}`);
 //     } else{
@@ -59,116 +73,126 @@ console.log('end');
 // })
 
 //
-/*
-fs.readdir('Filesystem', (e, files) => {
-    if(e){
-        console.log(`error occured: ${e.message}`);
-    } else{
-        console.log('getting files here');
-        console.log(files);
-    }
-})
-*/
+// const fs = require("fs");
+// fs.rmdir('my', {recursive: true}, (err) => {
+//   if(err){
+//       console.log(`error occured: ${err.message}`);
+//   } else{
+//       console.log('deleted succesfully');
+//   }
+// })
+// done with directory
 
 //
-/*
-fs.rmdir('Filesystem/my', {recursive: true}, (err) => {
-    if(err){
-        console.log(`error occured: ${err.message}`);
-    } else{
-        console.log('deleted succesfully');
-    }
-})
-*/
-//don with directory
-//<===========================================================>//
-
-
-
 
 //<===========================================================>//
-// Lec6Feb22: Creating and working files, Events module, Emitting Events
 
 //
 // CRUD on files
-/*
+
 // if file is not there then it will create one, and then write the content
 // if file is there already then it will overwrite the content in that file
-fs.writeFile('Filesystem/myFile.txt', 'hi this is Abhinav', (err) => {
-    if(err){
-      console.log(`error occured: ${err.message}`);
-    }
-  })
-  */ 
+// const fs = require("fs");
+// fs.writeFile('myFile.txt', 'hi this is Abhinav', (err) => {
+//     if(err){
+//       console.log(`error occured: ${err.message}`);
+//     }
+//   })
+  
 
-  /*
-  // if file is not there then it will create one, and then write the content
-  // if file is there already then it will append the content in that file
-  fs.appendFile('Filesystem/File.txt', '\nHi this line no 1', (err) => {
-    if(err){
-      console.log(`error occured: ${err.message}`);
-    }else{
-      console.log('file appended successfully');
-    }
-  })
-*/
-//   fs.open('Filesystem/File.txt', 'r') 
+// if file is not there then it will create one, and then write the content
+// if file is there already then it will append the content in that file
 
-/*
+  // fs.appendFile('Filesystem/File.txt', '\nHi this line no 2', (err) => {
+  // fs.appendFile('File.txt', '\nHi this line no 2', (err) => {
+  //   if(err){
+  //     console.log(`error occured: ${err.message}`);
+  //   }else{
+  //     console.log('file appended successfully');
+  //   }
+  // })
+  
+
+//   fs.open('Filesystem/File.txt', 'r')
 // open
-  fs.open('Filesystem/File.txt', 'r', (err, file) => {
-    if(err){
-      console.log(`error occured: ${err.message}`);
-    }else{
-      console.log(file);
-      console.log('file appended successfully');
-    }
-  })
-*/
+
+// fs.open('Filesystem/File.txt', 'r', (err, file) => {
+// fs.open('File.txt', 'r', (err, file) => {
+//     if(err){
+//       console.log(`error occured: ${err.message}`);
+//     }else{
+//       console.log(file);
+//       console.log('file appended successfully');
+//     }
+//   })
+
 
 //
+// const fs = require("fs");
+//   fs.readFile('File.txt', 'utf-8', (err, file) => {
+//     if(err){
+//       console.log(`error occured: ${err.message}`);
+//     }else{
+//       // console.log(file+'');
+//       console.log(file);
+//       console.log('file reading successfully');
+//     }
+//   })
+
+
+//to delete file
+
+  // fs.unlink('Filesystem/myFile.js', (err) => {
+  // fs.unlink('myFile.txt', (err) => {
+  //   if(err){
+  //     console.log(`error occured: ${err.message}`);
+  //   } else{
+  //     console.log('file deleted successfully');
+  //   }
+  // })
+
+
+//same code as above, now using async method
+// const fs = require("fs");
+// const fsPromise = require('fs/promises');//(most latest way of handelling promises)
+// const deleteFile = async() => {
+//   await fsPromise.unlink('Filesystem/myFile.txt');
+// }
+
+// deleteFile();
+
 /*
-  fs.readFile('Filesystem/File.txt', 'utf-8', (err, file) => {
-    if(err){
-      console.log(`error occured: ${err.message}`);
-    }else{
-      // console.log(file+'');
-      console.log(file);
-      console.log('file reading successfully');
-    }
-  })
-  */
-
-  
-  //to delete file
-  /*
-  fs.unlink('Filesystem/myFile.js', (err) => {
-    if(err){
-      console.log(`error occured: ${err.message}`);
-    } else{
-      console.log('file deleted successfully');
-    }
-  })
-  */
-
-  //same code as above, now using async method
-  /* 
-  const fsPromise = require('fs/promises');//(most latest way of handelling promises)
-  const deleteFile = async() => {
-    await fsPromise.unlink('Filesystem/myFile.txt');
-  }
-  
-  deleteFile(); 
-  */
-  
-  /*
  (function(){
   
   })()
 */
 
 
+//
+//revise
+// const deleteFile = async() => {
+//   await fsPromise.unlink('Filesystem/myFile.txt');
+// }
 
+// deleteFile();
+
+// (function(){
+
+// })()
+
+
+// const myFileWriter = (filename, content) => {
+//   fs.writeFile(filename, content, (err) => {
+//     if(err)
+//     console.log(err);
+//   })
+// }
+
+
+// const myFileReader = async(filename) => {
+//   const fileContent = await fsPromise.readFile(filename)
+//   return fileContent.toString()
+// }
 
 
 //callback
@@ -187,4 +211,5 @@ fetch('https://myapi.com')
 //   await fetch('https://myapi.com')
 // }
 
-//<===========================================================>
+//<============================END: Lec6Feb21_Creating and writing files,Events Module, Emmiting Module Module===============================>//
+//Iske baad EvenEmitter sikha folder banaya

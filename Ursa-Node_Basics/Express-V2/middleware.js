@@ -27,7 +27,7 @@ module.exports = { checkLogInStatus };
 */
 
 //2)
-/*
+
 const checkLogInStatus = (req, res, next) => {
     // check the username
     // match password
@@ -45,6 +45,5 @@ const checkUser = (req, res, next) => {
 }
 
 module.exports = { checkLogInStatus, checkUser }; 
-*/
 
 // <===============END: Lec11March1: Building Restful API using Express-CRUD for Ecommerce API===============>//

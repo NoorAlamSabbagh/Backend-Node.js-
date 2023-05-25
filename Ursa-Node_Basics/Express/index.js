@@ -30,46 +30,45 @@
 
 //<===========================================================>//
 
-
 //<====================Lec9Feb27: Introducing Nodemon, Route Parameters, Handling Https========================>//
 //Sara code index.js me hi ha lec9 ka
 
 //
-// const express = require('express');
+/*
+const express = require('express');
 
-// const app = express();
+const app = express();
 
-// app.get('/',(req, res)=>{
-//     console.log('///endPoint');
-//     res.send('<h2>Default page using express</h2>');
-// })
+app.get('/',(req, res)=>{
+    console.log('///endPoint');
+    res.send('<h2>Default page using express</h2>');
+})
 
-// app.get('/login',(req, res)=>{
-//     console.log("method", req.method);//what type of method do you have
-//     console.log("url", req.url);//url have combination of path and any or query parameter
-//     console.log("path", req.path);//the path have only routes path
-//     console.log("headers", req.headers);
-//     console.log("query", req.query);//key value pairs objects
-//     console.log(req);
-//     res.send('<h1>login page....</h1>')
-// })
+app.get('/login',(req, res)=>{
+    console.log("method", req.method);//what type of method do you have
+    console.log("url", req.url);//url have combination of path and any or query parameter
+    console.log("path", req.path);//the path have only routes path
+    console.log("headers", req.headers);
+    console.log("query", req.query);//key value pairs objects
+    console.log(req);
+    res.send('<h1>login page....</h1>')
+})
 
-// app.get('/data',(req, res)=>{
-//     console.log('/// data endPoint');
-//     res.send({name:'Abhinav'});
-// })
+app.get('/data',(req, res)=>{
+    console.log('/// data endPoint');
+    res.send({name:'Abhinav'});
+})
 
-// app.get('*',(req, res)=>{
-//     console.log('not found page');
-//     res.send('<h3>Page not found !!</h3>');
-// })
+app.get('*',(req, res)=>{
+    console.log('not found page');
+    res.send('<h3>Page not found !!</h3>');
+})
 
-// const PORT = 5500;
-// app.listen(PORT, () =>{
-//     console.log(`express running at ${PORT}`);
-// })
-
-
+const PORT = 5500;
+app.listen(PORT, () =>{
+    console.log(`express running at ${PORT}`);
+})
+*/
 
 ////////////////////////////////////
 /*
@@ -158,7 +157,6 @@ app.listen(PORT, () =>{
 })
 */
 
-
 //
 /*
 const express = require("express");
@@ -170,7 +168,6 @@ app.use(express.json());
 
 // to get the data from a form which will have the format as urlencoded
 // app.use(express.urlencoded());
-
 
 const product = [
   {
@@ -203,55 +200,58 @@ const product = [
   },
 ];
 
-app.get("/", (req, res) => {//browser se get request jata ha
-    console.log("get endpoint");
-    res.send("<h2>Default page GET</h2>");
-  });
-  
-  app.post("/", (req, res) =>{
-      console.log("post endpoint");
-      res.send("<h2>Default page POST</h2>");
-  })
-  
-  app.get("/login", (req, res) => {
-    console.log("method", req.method);
-    console.log("url", req.url);
-    console.log("path", req.path);
-    console.log("headers", req.headers);
-    console.log("query", req.query);
-    console.log(req);
-    res.send("<h1>login page..</h1>");
-  });
-  
-  app.get("/data", (req, res) => {
-    console.log("data endpoint");
-    res.send({ name: "Abhinav" });
-  });
-   
-app.get("/products/:productId", (req, res) => {
-    console.log("params", req.params);
-    const productItem = product.find((prd) => prd.id === Number(req.params.productId));
-      console.log('productItem', productItem);
-      if(productItem){
-          res.send(productItem)
-      }else{
-          res.send({})
-      }
-  });
+app.get("/", (req, res) => {
+  //browser se get request jata ha
+  console.log("get endpoint");
+  res.send("<h2>Default page GET</h2>");
+});
 
-  app.get('*',(req, res)=>{
-    console.log('not found page');
-    res.send('<h3>Page not found !!</h3>');
-})
+app.post("/", (req, res) => {
+  console.log("post endpoint");
+  res.send("<h2>Default page POST</h2>");
+});
+
+app.get("/login", (req, res) => {
+  console.log("method", req.method);
+  console.log("url", req.url);
+  console.log("path", req.path);
+  console.log("headers", req.headers);
+  console.log("query", req.query);
+  console.log(req);
+  res.send("<h1>login page..</h1>");
+});
+
+app.get("/data", (req, res) => {
+  console.log("data endpoint");
+  res.send({ name: "Abhinav" });
+});
+
+// http://localhost:5500/products/2
+app.get("/products/:productId", (req, res) => {
+  console.log("params", req.params);
+  const productItem = product.find(
+    (prd) => prd.id === Number(req.params.productId)
+  );
+  console.log("productItem", productItem);
+  if (productItem) {
+    res.send(productItem);
+  } else {
+    res.send({});
+  }
+});
+
+app.get("*", (req, res) => {
+  console.log("not found page");
+  res.send("<h3>Page not found !!</h3>");
+});
 
 const PORT = 5500;
-app.listen(PORT, () =>{
-    console.log(`express running at ${PORT}`);
-})
+app.listen(PORT, () => {
+  console.log(`express running at ${PORT}`);
+});
 */
 
 
-//
 //
 /*
 const express = require("express");
@@ -362,7 +362,6 @@ app.listen(PORT, () =>{
 })
 */
 
-
 ///////////////////////////////
 
 /*
@@ -400,12 +399,7 @@ app.listen(PORT, () =>{
 // axios.post('https://myapi.com', userInfo)
 */
 
-
 //<==================End Of Lec9Feb27(line 31 se  222 tak isi index.js me code likha ha is lec me)===============>//
-
-
-
-
 
 //<==================Lec10Feb28 Handling HTTP PUT Request, handling http delete request==========================>//
 /*
@@ -772,11 +766,6 @@ app.post('/divide', (req, res) => {
 */
 //<====================================== End of: Lec10Feb28 ============================================>/
 
-
-
-
-
-
 // <===============Lec11March1: Building Restful API using Express-CRUD for Ecommerce API===============>//
 //PATCH aur DELETE ka code likha
 /*
@@ -945,14 +934,14 @@ app.listen(PORT, () => {
 
 */
 // <===============End of Lec11March1===============>//
-//iske baad middleware padha 
+//iske baad middleware padha
 //Express-V2 ka folder banaya usme index aur middleware ka file banaya
 //npm i nodemon --save-dev
 //npm i express commond use kiya use file me
 //phele Express-V2 me index js me route banaya fir Express-V2 me Middleware me code likha
 //MIDDLEWARE
 // middleware is a piece of code that is used in between request and response
-//middleware functions are functions that have access to the request object, response object, and the next function in the application 
+//middleware functions are functions that have access to the request object, response object, and the next function in the application
 // request response cycle
 
 // to get the data from client where body is in form of json

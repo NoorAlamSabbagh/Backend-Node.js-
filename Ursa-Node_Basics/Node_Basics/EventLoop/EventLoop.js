@@ -23,12 +23,17 @@
 
 // setImmediate(() => { 
 //   console.log("immidiately called");
-// });
+// }); 
 
-// fs.open("file1.txt", (err) => { 
-//   // console.log(err)
-//   console.log("file opened successfully");
-// });
+
+//  async function hello(){
+//   await fs.open("file1.txt", (err) => { 
+//     // console.log(err)
+//      console.log("file opened successfully");
+//   });
+//  }
+//  hello();
+
 
 //
 // console.log("inside node js file"); 
@@ -100,13 +105,14 @@ fs.open("file1.txt", (err) => {
 
 
 //procees aur promise vip log ha
+// process. nextTick ( ) schedule a callback function to be executed in next iteration of event loop.
 process.nextTick(() => {
         console.log('calling next tick');
 })
 
 Promise.resolve().then(() => console.log('log from internal promise'));
-
 */
+
 //Bs itna hi code ha is Lec me
 // <==============================END: 17Feb_Node_Lecture3==========================================>
 

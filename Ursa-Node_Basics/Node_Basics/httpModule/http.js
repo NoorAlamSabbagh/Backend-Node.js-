@@ -27,24 +27,24 @@ server.listen(PORT, () => {
 */
 
 //
+/*
+const http = require('http');
+const server = http.createServer((req, res) => {
+    console.log('req received');
+    res.end("sending Respnse")
+})
 
-// const http = require('http');
-// const server = http.createServer((req, res) => {
-//     console.log('req received');
-//     res.end("sending Respnse")
-// })
+//server internally implements event module
+server.on('error', (req,res)=>{
+    console.log('error inside server')
+})
+server.emit('error');
 
-// //server internally implements event module
-// server.on('error', (req,res)=>{
-//     console.log('error inside server')
-// })
-// server.emit('error');
-
-// const PORT = 8000
-// server.listen(PORT, () => {
-//     console.log(`server is running at ${PORT}`);
-// })
-
+const PORT = 8000
+server.listen(PORT, () => {
+    console.log(`server is running at ${PORT}`);
+})
+*/
 
 //
 // const http = require('http');
@@ -106,26 +106,26 @@ server.listen(PORT, () => {
 
 
 //
-const http = require('http');
-     const server = http.createServer((req,res)=>{
-    // console.log('headers', req.headers);
-    console.log('url', req.url);
-    if(req.url === '/'){
+// const http = require('http');
+//      const server = http.createServer((req,res)=>{
+//     // console.log('headers', req.headers);
+//     console.log('url', req.url);
+//     if(req.url === '/'){
         
-    }else if(req.url === '/home'){
-        res.end('<h2>Home Page</h2>')
-    }else if(req.url === '/login'){
-        res.end('<h2>Login Page</h2>')
-    }else{
-        res.end('sending Response');
-    }
-    res.end("sending response")
-})
+//     }else if(req.url === '/home'){
+//         res.end('<h2>Home Page</h2>')
+//     }else if(req.url === '/login'){
+//         res.end('<h2>Login Page</h2>')
+//     }else{
+//         res.end('sending Response');
+//     }
+//     res.end("sending response")
+// })
 
-const PORT = 8000;
-server.listen(PORT,()=>{
-    console.log("server is running at 8000")
-})
+// const PORT = 8000;
+// server.listen(PORT,()=>{
+//     console.log("server is running at 8000")
+// })
 
 
 
@@ -134,7 +134,7 @@ server.listen(PORT,()=>{
 
 //<===========================================================>//
 // Lec8Feb24: Restful Services, Introducing express, Building first Express server
-//server to server request bhejne ke liye
+// server to server request bhejne ke liye
 // const http = require('http');
 // const server = http.createServer((req, res) => {
 //     console.log('url', req.url);

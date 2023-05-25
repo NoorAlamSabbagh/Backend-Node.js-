@@ -1,4 +1,49 @@
 // <======================Lec12March2-Introducing routes and Router, middleware in express,mvc architecture==========>
+/*const express = require('express');
+
+const router = express.Router();
+
+// http://localhost:8000/product//base route ho gaya in sabhi ka
+// kyoki maine index.js me //app.use('/products', productRouter) kiya ha
+router.get('/',(req,res)=>{
+  res.send('All product list')
+})
+
+
+// http://localhost:8000/product/mobile
+router.get('/mobile',(req,res)=>{
+  res.send('All mobile product list')
+})
+
+router.get('/cloth',(req,res)=>{
+  res.send('cloth list')
+})
+
+module.exports = router
+*/
+
+//
+// kuch is tarah likh rahe the index file me
+// using Routes
+// product route
+// app.route('/product/:id')
+// .get((req, res) => {
+//     res.send('product page-- GET')
+// })
+// .post((req, res) => {
+//     res.send('product page -- POST')
+// })
+// .patch((req, res) => {
+//     res.send('product page -- PATCH')
+// })
+
+//
+// const a = 10;
+// const b = 20;
+// module.exports= router
+// module.exports= {a,b}
+
+//
 /*
 const express = require('express');
 
@@ -44,7 +89,8 @@ const products = [
 //     res.send(products)
 // })
 
-// same things I have done in line 39 to 45 but 
+// same things I have done in above comment off code  
+//I just optimize below code they have common path but different method
 router.route('/')
 .get((req, res) => {
     res.send(products)
@@ -67,37 +113,52 @@ router.get('/cloth', (req, res) =>{
 
 // module.exports = {router}//multiple things from one file then use this code
 module.exports = router
-
-
-
-//
-// const a = 10
-// const b =20
-// const name = 'Abhinav'
-
-// const info  = {
-//     name: 'Abhinav',
-// }
-
-// using Routes
-// product route
-// app.route('/product/:id')
-// .get((req, res) => {
-//     res.send('product page-- GET')
-// })
-// .post((req, res) => {
-//     res.send('product page -- POST')
-// })
-// .patch((req, res) => {
-//     res.send('product page -- PATCH')
-// })
 */
+
+//MVC ke bare me padha routes banae ke baad
+//Iske baad controller aur model ka file banaya
+// <======================END: Lec12March2-Introducing routes and Router, middleware in express,mvc architecture==========>
 
 
 
 //
 // <====================Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>
 /*
+const express = require('express');
+
+const router = express.Router();
+
+const {getAllProducts, createProduct} = require('../controllers/productController')
+
+//http://localhost/8000/product/
+// router.get('/', (req, res) => {//get:read
+//     res.send(products)
+// })
+// router.post('/', (req, res) => {//post:create
+//     products.push(req.body)
+//     res.send(products)
+// })
+
+router.route('/')
+// ab is route ko controllers ke productcontroller me use kar rahe ha lec13 yaha se start kiya
+.get(getAllProducts)//read ka logic kaam kar raha ha
+.post(createProduct)//write/create ka logic kaam kar raha ha
+
+router.get('/mobile', (req, res) =>{
+    res.send('all mobile product list');
+})
+
+router.get('/cloth', (req, res) =>{
+    res.send('cloths list');
+})
+
+
+
+module.exports = router
+*/
+
+//
+
 const express = require('express');
 
 const router = express.Router();
@@ -118,20 +179,10 @@ router.route('/')
 .get(getAllProducts)
 .post(createProduct)
 
-router.route('/:id')
+// abhi tak hamara data lost ho raha  tha par hume isko save bhi karna ha
+router.route('/:id')//product ko update karne ke liye id use kiya as param
 .patch(updateProduct)//to update product: pass id as params
 .delete(deleteProduct)
-
-
-//
-// router.get('/mobile', (req, res) =>{
-//     res.send('all mobile product list');
-// })
-
-
-// router.get('/cloth', (req, res) =>{
-//     res.send('cloths list');
-// })
 
 // module.exports = {router}//multiple things from one file then use this code
 module.exports = router
@@ -159,4 +210,4 @@ module.exports = router
 // .patch((req, res) => {
 //     res.send('product page -- PATCH')
 // })
-*/
+// <====================END Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>

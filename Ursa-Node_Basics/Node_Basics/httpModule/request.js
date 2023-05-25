@@ -10,8 +10,8 @@
 // .end();
 
 //
-//server to server request bhejne ke liye
-//is code me error aa raha ha
+// server to server request bhejne ke liye
+// is code me error aa raha ha
 // const http = require('http');
 
 // http.request('http://localhost:8000/login', (res) => {
@@ -25,28 +25,30 @@
 // })
 // .end()
 
+
 //
-const http = require('http');
+// const http = require('http');
 
-const options = {
-  hostname: 'localhost',
-  port: 8000,
-  path: '/login',
-  method: 'GET'
-};
+// const options = {
+//   hostname: 'localhost',
+//   port: 8000,
+//   path: '/login',
+//   method: 'GET'
+// };
 
-const request = http.request(options, (res) => {
-  console.log('response received');
-  res.setEncoding('utf-8');
-  res.on('data', (mydata) => {
-    console.log('getting response data here');
-    console.log(mydata);
-  });
-});
+// const request = http.request(options, (res) => {
+//   console.log('response received');
+//   res.setEncoding('utf-8');
+//   res.on('data', (mydata) => {
+//     console.log('getting response data here');
+//     console.log(mydata);
+//   });
+// });
 
-request.end();
+// request.end();
 
-// In this code, I've added the options object, which contains the hostname, port, path, and method for the request. You can modify these values to match your specific use case. Then, the http.request() method is assigned to the request variable, and the .end() method is called on the request variable to send the request.
+// In this code, I've added the options object, which contains the hostname, port, path, and method for the request. 
+// You can modify these values to match your specific use case. Then, the http.request() method is assigned to the request variable, and the .end() method is called on the request variable to send the request.
 
 
 

@@ -11,7 +11,7 @@
          "id": 2,
          "name": "cooler",
          "category": "Appliances",
-         "price": 25000,
+         "price": 30000,
          "color": "green"
       },
       {
@@ -23,6 +23,27 @@
       },
       {
          "id": 4,
+         "name": "Iphone",
+         "category": "Appliances",
+         "price": 85000,
+         "color": "silver"
+      },
+      {
+         "id": 6,
+         "name": "cooler",
+         "category": "Appliances",
+         "price": 20000,
+         "color": "white"
+      },
+      {
+         "id": 3,
+         "name": "TV",
+         "category": "Appliances",
+         "price": 35000,
+         "color": "silver"
+      },
+      {
+         "id": 6,
          "name": "Iphone",
          "category": "Appliances",
          "price": 85000,

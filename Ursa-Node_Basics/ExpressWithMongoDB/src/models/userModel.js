@@ -21,6 +21,7 @@ const userSchema = new Schema({
 
 // first arg --> name of the collection, 
 // 2nd arg --> schema we created
+//user yaha collection name ha
 const User = mongoose.model("user", userSchema);//model banaya aur ye user naam ka folder ban jayega hamare mongodb ke under
 
 module.exports = User

@@ -173,7 +173,6 @@ const {getAllProducts, createProduct, updateProduct, deleteProduct } = require('
 //     res.send(products)
 // })
 
-// same things I have done in line 39 to 45 but 
 router.route('/')
 // ab is route ko controllers ke productcontroller me use kar rahe ha lec13 yaha se start kiya
 .get(getAllProducts)

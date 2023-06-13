@@ -15,3 +15,5 @@ const playerSchema = new Schema({
 const Player = mongoose.model("player", playerSchema);
 
 module.exports = Player
+
+//<====================END: Lec16March9: Comparision Query Operators, Logical Query Operators===================>

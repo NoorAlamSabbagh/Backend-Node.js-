@@ -1,4 +1,23 @@
+//<======================Lec17March10-Introducing MVC Architecture=================================>
+/*
+const express = require('express');
+const {getUserList} =require("./src/controllers/userControllers");
+
+const app = express();
+
+
+app.get('/', getUserList)
+
+const PORT = 5800
+app.listen(PORT, ()=>{
+    console.log(`express server running at ${PORT} `)
+})
+*/
+//<======================END: Lec17March10-Introducing MVC Architecture=================================>
+
+//
 //<======================Lec18March12-Better Folder Structure=================================>
+/*
 const express = require("express");
 const {getUserList} = require("./src/controllers/userControllers");
 
@@ -20,19 +39,20 @@ require('./dbConnection')//dbConnection ko connect kiya
 // http://localhost/5800
 
 //user
-/*
-//is pure code ko userRoute me routes me likhenge
-app.get('/user', getUserList);//reading a user
-app.post('/user',()=>{
-    
-})
-app.get('/user/address', ()=>{
-    
-})
-app.get('/user/orders', ()=>{
 
-})
-*/
+// //is pure code ko userRoute me routes me likhenge
+// app.get('/user', getUserList);//reading a user
+// app.post('/user',()=>{
+    
+// })
+// app.get('/user/address', ()=>{
+    
+// })
+// app.get('/user/orders', ()=>{
+
+// })
+
+
 //products
 // product routes ki tarah bhi kar sakte ha
 // app.get('/product', ()=>{
@@ -47,4 +67,5 @@ const PORT = 5800;
 app.listen(PORT,()=>{
     console.log(`express server running on ${PORT}`);
 })
+*/
 //<======================End: Lec18March12=================================>

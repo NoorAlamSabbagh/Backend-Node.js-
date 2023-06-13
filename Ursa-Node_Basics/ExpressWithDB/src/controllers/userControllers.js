@@ -1,3 +1,15 @@
+//<======================Lec17March10-Introducing MVC Architecture=================================>
+/*
+const getUserList = (req, res) =>{
+  res.send('User List')
+}
+
+module.exports = { getUserList}
+*/
+
+//<======================END: Lec17March10-Introducing MVC Architecture=================================>
+
+
 //<======================Lec18March12-Better Folder Structure=================================>
 /*const UserModel = require("../models/userModel")
 const getUserList = (req, res)=>{
@@ -271,6 +283,7 @@ module.exports = {getUserList, createUser, getUserAddress, getUserOrders, getUse
 
 
 //<=======================Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
+/*
 const UserModel = require("../models/userModel")
 const getUserList = (req, res)=>{
     // res.send('user List')
@@ -551,6 +564,6 @@ res.send(data)
 
 
 module.exports = {getUserList, createUser, getUserAddress, getUserOrders, getUser, updateUser, deleteUser};
-
+*/
 
 //<===============End ofLec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>

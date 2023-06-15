@@ -1,7 +1,7 @@
 //<======================Lec18March12-Better Folder Structure=================================>
 const {connect} = require('mongoose');
 
-connect('mongodb://localhost:27017/NSUrsaAndJuno')
+connect('mongodb://localhost:27017/NSUrsaWithJunoBatch')
 .then(() => {
     console.log(`connection with DB successful`);
 })

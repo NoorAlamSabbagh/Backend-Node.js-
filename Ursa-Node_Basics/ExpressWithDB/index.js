@@ -15,8 +15,37 @@ app.listen(PORT, ()=>{
 */
 //<======================END: Lec17March10-Introducing MVC Architecture=================================>
 
+
+
 //
 //<======================Lec18March12-Better Folder Structure=================================>
+const express = require('express');
+const {getUserList} =require("./src/controllers/userControllers");
+const app = express();
+
+const userRouter = require('./src/routes/userRoutes')
+
+app.use(express.json())//middleware to read your json from your postman and console it on your terminal as obj format
+
+app.use('/user', userRouter)
+require('./dbConnection')
+
+//product
+// app.get('/product', () =>{
+    
+// })
+// app.get('/product/clothing', () =>{
+
+// })
+
+
+const PORT = 5800
+app.listen(PORT, ()=>{
+    console.log(`express server running at ${PORT} `)
+})
+
+
+//
 /*
 const express = require("express");
 const {getUserList} = require("./src/controllers/userControllers");

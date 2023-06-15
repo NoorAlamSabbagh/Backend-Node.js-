@@ -50,7 +50,6 @@ module.exports = router;
 
 //<======================Lec19March14-Updating a document -update first Scale your Ecommerce data=================================>
 //Is lec19 me srif updateUser Routes ka code likha ha bs
-
 const express = require("express");
 const {
   getUserList,
@@ -58,23 +57,18 @@ const {
   getUserAddress,
   getUserOrders,
   getUser,
-  updateUser,
-  deleteUser,
+  updateUser
 } = require("../controllers/userControllers");
 
 const router = express.Router();
 
-// http://localhost/5800/user
-router.get("/", getUserList); //reading user list
-router.get("/singleUser", getUser);
-router.post("/", createUser);
-router.get("/address", getUserAddress);
-router.get("/orders", getUserOrders);
-// router.patch("/:id", updateUser);
-router.patch("/:email", updateUser);
-//lec20
-router.delete('/:id', deleteUser)
+router.get('/', getUserList)//reading a user List
+router.get('/singleUser', getUser);
+router.post('/',createUser )//Writing a user
+router.get('/address', getUserAddress)
+router.get('/orders',getUserOrders)
+// router.patch('/:id', updateUser) //for id
+router.patch('/:email', updateUser)//for email
 
 module.exports = router;
-
 //<======================End: Lec19March14=================================>

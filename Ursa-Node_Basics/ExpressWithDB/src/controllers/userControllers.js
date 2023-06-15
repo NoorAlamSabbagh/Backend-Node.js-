@@ -9,67 +9,64 @@ module.exports = { getUserList}
 
 //<======================END: Lec17March10-Introducing MVC Architecture=================================>
 
-
 //<======================Lec18March12-Better Folder Structure=================================>
-/*const UserModel = require("../models/userModel")
-const getUserList = (req, res)=>{
-    // res.send('user List')
-    //sara data show ho gaya postman pe list of data
-    UserModel.find()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+/*
+const UserModel = require('../models/userModel');
+
+const getUserList = (req, res) =>{
+  // res.send('User List')
+  UserModel.find()
+  .then((data)=>{
+    res.send(data)
+  })
+  .catch((err)=>{
+    res.send(err)
+  })
+}
+
+const getUser = (req,res) => {
+  // always return you a list
+  // UserModel.find({name: 'Student1'})
+  UserModel.find({email: 'student2@gmail.com'})
+ .then((data) => {
+   res.send(data)
+ })
 };
 
-const getUser = (req, res) => {
-    // always return you a list
-    UserModel.find({password: '99999'})
-    .then((data) => {
-      res.send(data)
-    })
-  };
-
-const createUser = (req, res) => {
-    // get the data coming from client
-    console.log("user data", req.body);
-    UserModel.create(req.body)
-      .then((data) => {
-        console.log("data", data);
-        res.send(data);
-      })
-      .catch((err) => {
-        res.send(err);
-      });
-    // we have to create a user using this data in our DB
-    // res.send("creating user")
-  };
-
-const getUserAddress = (req, res)=>{
-    res.send('address of user')
+//Step1
+const createUser = (req, res) =>{
+  // get the data coming from client
+  console.log('user data', req.body);
+  UserModel.create(req.body)
+  .then((data) => {
+    console.log("data", data);
+    res.send(data);
+  })
+  .catch((err) => {
+    res.send(err);
+  });
+   // we have to create a user using this data in our DB
 }
 
-const getUserOrders = (req, res)=>{
-    res.send('user orders')
+const getUserAddress = (req, res) =>{
+  res.send('address of user')
 }
 
-module.exports = {getUserList, createUser, getUserAddress, getUserOrders, getUser};
+const getUserOrders = (req, res) =>{
+  res.send('orders of user')
+}
+
+module.exports = { getUserList, createUser, getUserAddress, getUserOrders, getUser}
 */
+
 //<======================End: Lec18March12=================================>
 
-
-
-
-
 //<======================Lec19March14-Updating a document -update first Scale your Ecommerce data=================================>
-/*
-const UserModel = require("../models/userModel")
-const getUserList = (req, res)=>{
-    // res.send('user List')
-    //sara data show ho gaya postman pe list of data
-    UserModel.find()
+const UserModel = require("../models/userModel");
+
+const getUserList = (req, res) => {
+  // res.send('User List')
+  UserModel.find()
     .then((data) => {
       res.send(data);
     })
@@ -78,36 +75,38 @@ const getUserList = (req, res)=>{
     });
 };
 
+//query parameter
+// http://localhost:5800/user/singleUser?age=25
 const getUser = (req, res) => {
-  //<===============================Lec19 ka code yaha se start hua===============================>
-    // always return you a list
-    // console.log('query params', req.query)
-    // UserModel.find({password: '12345', age:25})
-    // UserModel.find({age: Number(req.query.age)})
-    // .then((data) => {
-    //   res.send(data)
-    // })
+  // always return you a list
+  //1)
+  // console.log("query params", req.query);
+  // UserModel.find({ age: Number(req.query.age) })
+  // .then((data) => {
+  //   res.send(data);
+  // });
 
-    //json array
-    // UserModel.find({email:'student4@gmail.com'})
-    // .then((data) => {
-    //   res.send(data)
-    // })
+  //2)
+  //json array
+  // UserModel.find({email:'student2@gmail.com'})
+  // .then((data) => {
+  //   res.send(data)
+  // })
 
+  //3)
+  // return the first match (json object)
+  // UserModel.findOne({ age: 25, name: "Student1" })
+  // .then((data) => {
+  //   res.send(data);
+  // });
 
-    //return the first match (json object)
-    // UserModel.findOne({age:25, name: 'student6'})
-    // .then((data) => {
-    //   res.send(data)
-    // })
-
-  //
-  // UserModel.findById('640f7cd270c50ead2bee03bc')
+  //4)
+  // UserModel.findById('648b566343953e57da4d6a7e')
   // .then((data) => {
   //     res.send(data)
   // })
 
-  //
+  //5)
   // // UserModel.find().select({name:0})
   // // UserModel.find().select({name:1,email:1})
   // // UserModel.find().select(['-name'])
@@ -117,8 +116,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
-
-  //
+  //6)
   // UserModel
   // .find({age: 25})
   // .select({name:1, age:1})
@@ -127,9 +125,8 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
-
+  //7)
   // >, <, >=, <=, !=, =, filter based on multiple values
-
   // UserModel
   // .find({age: {$gte: 25}})
   // .select({name:1, age:1})
@@ -138,6 +135,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
+  //8)
   // UserModel
   // .find({age: {$lte: 25}})
   // .select({name:1, age:1})
@@ -146,7 +144,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
-
+  //9)
   // UserModel
   // .find({age: {$in: [25, 18]}})
   // .select({name:1, age:1})
@@ -155,6 +153,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
+  //10)
   // UserModel
   // .find({age: {$nin: [25, 18]}})
   // .select({name:1, age:1})
@@ -163,6 +162,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
+  // 11)
   // UserModel
   // .find({age: {$ne: 25}})
   // .select({name:1, age:1})
@@ -171,35 +171,37 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
-
+  //
   // and, or, nor, nand
+  // 12)
+  // UserModel.find({ $and: [{ age: 25 }, { name: "Student3" }] })
+  //   .select({ name: 1, age: 1 })
+  //   // UserModel.find().select({email:1})
+  //   .then((data) => {
+  //     res.send(data);
+  //   });
 
+  //13)
   // UserModel
-  // .find({$and: [{age: 25}, {name: 'student6'}]})
+  // .find({$or: [{age: 25}, {name: 'Student1'}]})
   // .select({name:1, age:1})
   // // UserModel.find().select({email:1})
   // .then((data) => {
   //   res.send(data)
   // })
 
+  // 14)
   // UserModel
-  // .find({$or: [{age: 25}, {name: 'student1'}]})
-  // .select({name:1, age:1})
-  // // UserModel.find().select({email:1})
-  // .then((data) => {
-  //   res.send(data)
-  // })
-
-  // UserModel
-  // .find({$nor: [{age: 25}, {name: 'student1'}]})
+  // .find({$nor: [{age: 25}, {name: 'Student1'}]})
   // .countDocuments()
   // // UserModel.find().select({email:1})
   // .then((number) => {
   //   res.send({count: number})
   // })
 
+  // 15)
   // UserModel
-  // .find({$nor: [{age: 25}, {name: 'student1'}]})
+  // .find({$nor: [{age: 25}, {name: 'Student1'}]})
   // .select({name:1, age:1})
   // .limit(5)
   // // UserModel.find().select({email:1})
@@ -207,6 +209,7 @@ const getUser = (req, res) => {
   //   res.send(data)
   // })
 
+  //16)
   UserModel.find({ $nor: [{ age: 25 }, { name: "Student1" }] })
     .select({ name: 1, age: 1 })
     .skip(3)
@@ -216,71 +219,80 @@ const getUser = (req, res) => {
     });
 };
 
+//
 
+//Step1
 const createUser = (req, res) => {
-    // get the data coming from client
-    // console.log("user data", req.body);
-    //create for single array
-    // UserModel.create(req.body)
-    //   .then((data) => {
-    //     console.log("data", data);
-    //     res.send(data);
-    //   })
-    //   .catch((err) => {
-    //     res.send(err);
-    //   });
+  // get the data coming from client
+  console.log("user data", req.body);
+  // UserModel.create(req.body)
+  //   .then((data) => {
+  //     console.log("data", data);
+  //     res.send(data);
+  //   })
+  //   .catch((err) => {
+  //     res.send(err);
+  //   });
 
-    //create for multiple user at once
-    // UserModel.insertMany(req.body)
-    //   .then((data) => {
-    //     console.log("data", data);
-    //     res.send(data);
-    //   })
-    //   .catch((err) => {
-    //     res.send(err);
-    //   });
-    // we have to create a user using this data in our DB
-    // res.send("creating user")
-  };
+  // create for multiple user at once
+  UserModel.insertMany(req.body)
+    .then((data) => {
+      console.log("data", data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+  // we have to create a user using this data in our DB
+  // res.send("creating user")
+};
 
-const getUserAddress = (req, res)=>{
-    res.send('address of user')
-}
+const getUserAddress = (req, res) => {
+  res.send("address of user");
+};
 
-const getUserOrders = (req, res)=>{
-    res.send('user orders')
-}
+const getUserOrders = (req, res) => {
+  res.send("orders of user");
+};
 
 const updateUser = (req, res) => {
   console.log("params", req.params);
 
-  // UserModel.findByIdAndUpdate(
-  //   req.params.id,
-  //   { $set: req.body },
-  //   { new: true } // used for getting updated data
-  // ).then((data) => {
+  //1)
+  // UserModel.findByIdAndUpdate(req.params.id,
+  // { $set: req.body },
+  // {new: true})//used for getting updated data
+  // .then((data) => {
   //   console.log("data", data);
   //   res.send(data);
   // });
 
+  //2)
   // UserModel.updateOne({ email: req.params.email }, req.body, {
-  //   upsert: true, // it will create the data if not found
-  // }).then((data) => {
-  //   console.log("data", data);
-  //   res.send(data);
-  // });
+  //     upsert: true, // it will create the data if not found
+  //   }).then((data) => {
+  //     console.log("data", data);
+  //     res.send(data);
+  //   });
 
+  //3)
+  // http://localhost:5800/user/student7@gmail.com
   UserModel.updateMany({ password: "12345" }, req.body).then((data) => {
     console.log(data);
     res.send(data);
   });
 };
-module.exports = {getUserList, createUser, getUserAddress, getUserOrders, getUser, updateUser,};
-*/
+
+module.exports = {
+  getUserList,
+  createUser,
+  getUserAddress,
+  getUserOrders,
+  getUser,
+  updateUser,
+};
 
 //<======================End: Lec19March14=================================>
-
-
 
 //<=======================Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
 /*

@@ -50,7 +50,9 @@ module.exports = router;
 
 //<======================Lec19March14-Updating a document -update first Scale your Ecommerce data=================================>
 //Is lec19 me srif updateUser Routes ka code likha ha bs
+/*
 const express = require("express");
+
 const {
   getUserList,
   createUser,
@@ -71,4 +73,34 @@ router.get('/orders',getUserOrders)
 router.patch('/:email', updateUser)//for email
 
 module.exports = router;
+*/
 //<======================End: Lec19March14=================================>
+
+
+
+//<===============Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
+//deleteUser ka routes likha is code me
+const express = require("express");
+const {
+  getUserList,
+  createUser,
+  getUserAddress,
+  getUserOrders,
+  getUser,
+  updateUser,
+  deleteUser
+} = require("../controllers/userControllers");
+
+const router = express.Router();
+
+router.get('/', getUserList)//reading a user List
+router.get('/singleUser', getUser);
+router.post('/',createUser )//Writing a user
+router.get('/address', getUserAddress)
+router.get('/orders',getUserOrders)
+// router.patch('/:id', updateUser) //for id
+router.patch('/:email', updateUser)//for email
+router.delete('/:id', deleteUser)
+
+module.exports = router;
+//<===============End ofLec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>

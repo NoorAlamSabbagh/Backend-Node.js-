@@ -1,8 +1,9 @@
+//<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
 const {connect} = require('mongoose');
 
 const URL = process.env.MONGODB_CONNECTION_URL
 const options = {
-    dbName: 'NSUsers'
+    dbName: 'NodeRevision'
 }
 connect(URL, options)
 .then(() => {
@@ -11,3 +12,5 @@ connect(URL, options)
 .catch(() => {
     console.log(`something went wrong`);
 })
+
+//<=======================END: Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>

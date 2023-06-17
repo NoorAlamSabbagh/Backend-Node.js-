@@ -1,6 +1,6 @@
 //<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
 
-/*const UserModel = require("../models/userModel")
+const UserModel = require("../models/userModel")
 
 const createUser = (req, res) => {
     console.log('body', req.body)
@@ -14,7 +14,7 @@ UserModel.create(req.body)
 }
 
 module.exports = {createUser}
-*/
+
 
 //<===============End of Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
 
@@ -112,6 +112,7 @@ module.exports = {createUser, loginUser, getProfile}
 
 
 //<===============Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments=============>
+/*
 const UserModel = require("../models/userModel")
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
@@ -296,4 +297,5 @@ const getProfile = (req, res) => {
 // };
 
 module.exports = {createUser, loginUser, getProfile}
+*/
 //<===============End of Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments=============>

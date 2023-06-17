@@ -19,6 +19,8 @@ app.listen(PORT, ()=>{
 
 //
 //<======================Lec18March12-Better Folder Structure=================================>
+//lec 19 me index me koi code nhi likha
+/*
 const express = require('express');
 const {getUserList} =require("./src/controllers/userControllers");
 const app = express();
@@ -43,10 +45,11 @@ const PORT = 5800
 app.listen(PORT, ()=>{
     console.log(`express server running at ${PORT} `)
 })
-
+*/
+//<======================END: Lec18March12-Better Folder Structure=================================>
 
 //
-/*
+//<=======================Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
 const express = require("express");
 const {getUserList} = require("./src/controllers/userControllers");
 
@@ -96,5 +99,5 @@ const PORT = 5800;
 app.listen(PORT,()=>{
     console.log(`express server running on ${PORT}`);
 })
-*/
-//<======================End: Lec18March12=================================>
+
+//<======================End: Lec20March=================================>

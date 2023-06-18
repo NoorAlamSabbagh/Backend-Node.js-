@@ -1,5 +1,5 @@
 //<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
-
+/*
 const UserModel = require("../models/userModel")
 
 const createUser = (req, res) => {
@@ -14,29 +14,27 @@ UserModel.create(req.body)
 }
 
 module.exports = {createUser}
-
+*/
 
 //<===============End of Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
 
 
 
 //<===============Lec22March17:Registering User, Hashing Password by using bcrypt, Authenticating Users, Json=============>
-/*
-const UserModel = require("../models/userModel")
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
+const UserModel = require("../models/userModel")
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 const createUser = (req, res) => {
     console.log('body', req.body)
-    //Lec22 code yaha se start kiya
-    const { name, email, password, mobile, batch } = req.body;
-    const saltRounds = bcrypt.genSaltSync(10);
-    const securePassword = bcrypt.hashSync(password, saltRounds);
-    console.log("securePassword", securePassword);
+ //Lec22 code yaha se start kiya
+ const { name, email, password, mobile, batch } = req.body;
+ const saltRounds = bcrypt.genSaltSync(10);
+ const securePassword = bcrypt.hashSync(password, saltRounds);
+ console.log("securePassword", securePassword);
 
-
-  UserModel.create({ name, email, password: securePassword, mobile, batch })
+ UserModel.create({ name, email, password: securePassword, mobile, batch })
 .then((data)=>{
     res.send('user created successfully')
  })
@@ -68,8 +66,13 @@ const createUser = (req, res) => {
 // })
 // }
 
+
+
+//
 // upar wale code me authentication ke liye session id use kar rahe the lakin wo problematic tha
-//ialiye JWT Jason web token use kiya is code me 
+//isliye JWT Jason web token use kiya is code me 
+// npm i jsonwebtoken package install kiya is code me
+// http://localhost:6800/user/login
 const loginUser = (req, res) => {
     const {email, password} = req.body
     // step 1 --> find the user
@@ -79,7 +82,7 @@ const loginUser = (req, res) => {
         // match the password
         const status = bcrypt.compareSync(password, user.password)
         console.log('status', status);
-        const secretKey = 'Newton#june#2022'//base64encoded.org 
+        const secretKey = 'Newton#june#2022'//base64encoded.org pe jake isko convert kar sakte ho
         if(status){
             // send a JWT token
             const token = jwt.sign({
@@ -99,9 +102,22 @@ const loginUser = (req, res) => {
 }
 
 const getProfile = (req, res) => {
-
-    // res.send()
+//    res.send()
 }
+
+module.exports = {createUser, loginUser, getProfile}
+
+
+
+
+
+/*
+
+
+
+
+
+
 
 
 module.exports = {createUser, loginUser, getProfile}

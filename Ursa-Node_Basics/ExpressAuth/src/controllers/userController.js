@@ -21,7 +21,7 @@ module.exports = {createUser}
 
 
 //<===============Lec22March17:Registering User, Hashing Password by using bcrypt, Authenticating Users, Json=============>
-
+/*
 const UserModel = require("../models/userModel")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
@@ -108,42 +108,28 @@ const getProfile = (req, res) => {
 module.exports = {createUser, loginUser, getProfile}
 
 
-
-
-
-/*
-
-
-
-
-
-
-
-
-module.exports = {createUser, loginUser, getProfile}
 */
+
 //<===============End of Lec22March17:Registering User, Hashing Password by using bcrypt, Authenticating Users, Json=============>
 
 
 
 
 //<===============Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments=============>
-/*
-const UserModel = require("../models/userModel")
-const bcrypt = require('bcrypt');
-const jwt = require("jsonwebtoken");
 
+const UserModel = require("../models/userModel")
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
 
 const createUser = (req, res) => {
     console.log('body', req.body)
-    //Lec22 code yaha se start kiya
-    const { name, email, password, mobile, batch } = req.body;
-    const saltRounds = bcrypt.genSaltSync(10);
-    const securePassword = bcrypt.hashSync(password, saltRounds);
-    console.log("securePassword", securePassword);
+ //Lec22 code yaha se start kiya
+ const { name, email, password, mobile, batch, role } = req.body;
+ const saltRounds = bcrypt.genSaltSync(10);
+ const securePassword = bcrypt.hashSync(password, saltRounds);
+ console.log("securePassword", securePassword);
 
-
-  UserModel.create({ name, email, password: securePassword, mobile, batch })
+ UserModel.create({ name, email, password: securePassword, mobile, batch, role })
 .then((data)=>{
     res.send('user created successfully')
  })
@@ -175,8 +161,13 @@ const createUser = (req, res) => {
 // })
 // }
 
+
+
+//
 // upar wale code me authentication ke liye session id use kar rahe the lakin wo problematic tha
-//ialiye JWT Jason web token use kiya is code me 
+//isliye JWT Jason web token use kiya is code me 
+// npm i jsonwebtoken package install kiya is code me
+// http://localhost:6800/user/login
 const loginUser = (req, res) => {
     const {email, password} = req.body
     // step 1 --> find the user
@@ -186,26 +177,26 @@ const loginUser = (req, res) => {
         // match the password
         const status = bcrypt.compareSync(password, user.password)
         console.log('status', status);
-        //isko maine .env me daal diya
-       
         if(status){
             // send a JWT token
             const token = jwt.sign({
                 id: user._id,
-                email: user.email,
+                email: user.email
             },
-    
-            // process.env.SECRET_KEY
+            process.env.SECRET_KEY
             );
             
             console.log('token', token);
-            //lec23March18 ka code yaha se start hua
-            // res.send('user logged in successfully')
+             //lec23March18 ka code yaha se start hua
+              // res.send('user logged in successfully')
+
+        // saving the token in db
+        // updateOne query
+        
             res.json({
                 message: "login successful",
                 token,
                 });
-
         } else{
             res.send('password incorrect !!')
         }
@@ -215,21 +206,82 @@ const loginUser = (req, res) => {
     })
 }
 
-//is code se tumhe token mila user ka
+// http://localhost:6800/user/profile
+//iska pura code authMiddleware me dala 
 // const getProfile = (req, res) => {
-//     res.send('profile Page')
-//     console.log('headers', req.headers)
-//     // agar req.header ko destructure kar du to authorization milega
+//     // console.log('headers', req.headers)
+// //    agar req.header ko destructure kar du to authorization milega is code me pura authorization mila
 //     const {authorization} = req.headers;
 //     if(authorization){
 //                 const authData = authorization.split(" ");//Bearer ko hatya token se mujhe srif token chahiye
 //                 const token = authData[1];
 //                 console.log('token', token);
-//              res.send('profile');
+//                 try{
+//                     const userInfo = jwt.verify(token, process.env.SECRET_KEY)
+//                     console.log('userInfo', userInfo)
+//                     UserModel.findById(userInfo.id).select({password: 0, _id:0})
+//                             .then((user) => {
+//                                 res.send(user)
+//                             })
+//             } catch(err){
+//                 res.send(err)
+//             }
 //             }else{
 //             res.send('you have to login first !!')
 //             }
 // }
+
+//
+const getProfile = (req, res) => {
+    // console.log('headers', req.headers)
+    console.log('id', req.userId);
+     UserModel
+    .findById(req.userId)
+    .select({ password:0, _id: 0 })
+    .then((userData) => {
+      res.send(userData)
+    })
+    .catch(() => {
+      res.send("something went wrong!!");
+    })
+};
+
+
+//batchName ke liya pata hona chahiye ki user kn ha tabhi aage next() use hoga
+  const getBatchName = (req, res) => {
+    UserModel
+    .findById(req.userId)
+    .select({ batch: 1 })
+    .then((userData) => {
+      res.send(userData)
+    })
+    .catch(() => {
+      res.send("something went wrong!!");
+    })
+};
+
+const getAllUsers = (req, res) => {
+    console.log("id", req.userId);
+    UserModel.find().select({name: 1})
+    .then((userList) => {
+      res.send(userList)
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+};
+
+module.exports = {createUser, loginUser, getProfile, getBatchName, getAllUsers}
+
+
+
+
+
+//
+/*
+//
+            
+ 
 
 //
 const getProfile = (req, res) => {
@@ -250,7 +302,7 @@ const getProfile = (req, res) => {
 //stuck in this code and unable to debug
 // const getProfile = (req, res) => {
 //     // res.send()
-//     // console.log('headers', req.headers)
+//     // 
 //     const {authorization} = req.headers;
     
 //     //maine token nikala is code me
@@ -261,13 +313,7 @@ const getProfile = (req, res) => {
 //         try{
 //         const userInfo = jwt.verify(token, process.env.SECRET_KEY);
 //         console.log('userInfo', userInfo);
-//         UserModel.findById(userInfo.id).select({password: 0})
-//         .then((user) => {
-//             res.send(user)
-//         })
-//         }catch(err){
-//             res.send(err)
-//         }
+//         
 //     }else{
 //     res.send('you have to login first !!')
 //     }
@@ -288,29 +334,9 @@ const getProfile = (req, res) => {
 //     })
 //   };
 
-//   const getBatchName = (req, res) => {
-//     res.send({batchName: "juno"})
-//     UserModel
-//     .findById(req.userId)
-//     .select({ batch: 1 })
-//     .then((userData) => {
-//       res.send(userData)
-//     })
-//     .catch(() => {
-//       res.send("something went wrong!!");
-//     })
-// };
 
-// const getAllUsers = (req, res) => {
-//   console.log("id", req.userId);
-//   UserModel.find().select({name: 1})
-//   .then((userList) => {
-//     res.send(userList)
-//   })
-//   .catch((err) => {
-//     res.send(err)
-//   })
-// };
+
+
 
 module.exports = {createUser, loginUser, getProfile}
 */

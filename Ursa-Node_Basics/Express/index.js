@@ -4,30 +4,31 @@
 //express me seperate seperate code likh sakte ha for seperate seperate path in your diferent callback function
 //aapko same piece of code ko baar baar touch karne ki jarorat nhi ha isliye express use karte ha
 //
-// const express = require('express');
+/*
+const express = require('express');
 
-// const app = express();
+const app = express();
 
-// app.get('/',(req, res)=>{
-//     console.log('///endPoint');
-//     res.send('<h2>Default page using express</h2>');
-// })
+app.get('/',(req, res)=>{
+    console.log('///endPoint');
+    res.send('<h2>Default page using express</h2>');
+})
 
-// app.get('/login',(req, res)=>{
-//     console.log('///login endPoint');
-//     res.send('<h1>login page....</h1>')
-// })
+app.get('/login',(req, res)=>{
+    console.log('///login endPoint');
+    res.send('<h1>login page....</h1>')
+})
 
-// app.get('/data',(req, res)=>{
-//     console.log('/// data endPoint');
-//     res.send({name:'Abhinav'});
-// })
+app.get('/data',(req, res)=>{
+    console.log('/// data endPoint');
+    res.send({name:'Abhinav'});
+})
 
-// const PORT = 5500;
-// app.listen(PORT, () =>{
-//     console.log(`express running at ${PORT}`);
-// })
-
+const PORT = 5500;
+app.listen(PORT, () =>{
+    console.log(`express running at ${PORT}`);
+})
+*/
 //<===========================================================>//
 
 //<====================Lec9Feb27: Introducing Nodemon, Route Parameters, Handling Https========================>//
@@ -73,7 +74,6 @@ app.listen(PORT, () =>{
 ////////////////////////////////////
 /*
 const express = require("express");
-
 const app = express();
 
 // to get the data from client where body is in form of json
@@ -141,6 +141,7 @@ app.get("/", (req, res) => {//browser se get request jata ha
 
   // to get products
   app.get("/products", (req, res) => {
+    console.log(product)
     res.send(product);
   });
    
@@ -156,6 +157,7 @@ app.listen(PORT, () =>{
     console.log(`express running at ${PORT}`);
 })
 */
+
 
 //
 /*
@@ -255,15 +257,13 @@ app.listen(PORT, () => {
 //
 /*
 const express = require("express");
-
 const app = express();
 
 // to get the data from client where body is in form of json
-app.use(express.json());
+app.use(express.json());//enable middleware that parses incoming requests with JSON payloads.
 
 // to get the data from a form which will have the format as urlencoded
 // app.use(express.urlencoded());
-
 
 const product = [
   {
@@ -323,6 +323,7 @@ app.get("/", (req, res) => {//browser se get request jata ha
    
 app.get("/products/:productId", (req, res) => {
     console.log("params", req.params);
+// params property is an object that contains the properties which are mapped to the named route "parameters"
     const productItem = product.find((prd) => prd.id === Number(req.params.productId));
       console.log('productItem', productItem);
       if(productItem){
@@ -332,9 +333,14 @@ app.get("/products/:productId", (req, res) => {
       }
   });
 
+  
   // for querry parameters
+  // http://localhost:5500/products?category=Mobile
+  // http://localhost:5500/products?price=20000
   app.get("/products", (req, res) => {
-    console.log('query', req.query);
+    // console.log("params", req.params)
+    // res.send(product)
+    // console.log('query', req.query);
     const {category, price} = req.query;//destructuring
     console.log('category', category);
     console.log('price', price);
@@ -348,11 +354,11 @@ app.get("/products/:productId", (req, res) => {
         res.send(productList);
     }
     // refactor this logic
-    res.send(product);
+    // res.send(product);
 });
 
   app.get('*',(req, res)=>{
-    console.log('not found page');
+    // console.log('not found page');
     res.send('<h3>Page not found !!</h3>');
 })
 
@@ -471,7 +477,7 @@ app.get("/", (req, res) => {//browser se get request jata ha
   });
    
 app.get("/products/:productId", (req, res) => {
-    console.log("params", req.params);
+    console.log("params", req.params);//params { productId: '2' }
     const productItem = product.find((prd) => prd.id === Number(req.params.productId));
       console.log('productItem', productItem);
       if(productItem){
@@ -482,8 +488,9 @@ app.get("/products/:productId", (req, res) => {
   });
 
   // for querry parameters
+  // http://localhost:5500/products?price=20000
   app.get("/products", (req, res) => {
-    console.log('query', req.query);
+    console.log('query', req.query);//query { price: '20000' }
     const {category, price} = req.query;//destructuring
     console.log('category', category);
     console.log('price', price);
@@ -497,7 +504,7 @@ app.get("/products/:productId", (req, res) => {
         res.send(productList);
     }
     // refactor this logic
-    res.send(product);
+    // res.send(product);
 });
 
 //sara code same ha upar wale code me jo kiya ha bs  yaha pe postman me naya json bana ke apne
@@ -580,6 +587,7 @@ app.get("/", (req, res) => {//browser se get request jata ha
       res.send("<h2>Default page POST</h2>");
   })
   
+
   app.get("/login", (req, res) => {
     console.log("method", req.method);
     console.log("url", req.url);
@@ -595,10 +603,6 @@ app.get("/", (req, res) => {//browser se get request jata ha
     res.send({ name: "Abhinav" });
   });
 
-  //to get products
-//   app.get("/products", (req, res) => {
-//     res.send(product);
-//   });
    
 app.get("/products/:productId", (req, res) => {
     console.log("params", req.params);
@@ -626,7 +630,7 @@ app.get("/products/:productId", (req, res) => {
         res.send(productList);
     }
     // refactor this logic
-    res.send(product);
+    // res.send(product);
 });
 
 app.post("/products", (req, res)=>{
@@ -659,6 +663,7 @@ app.post("/products", (req, res)=>{
 app.put('/products/:id', (req, res) => {
   console.log('params in put req', req.params);
   console.log('updates value', req.body);
+  //
   // product.forEach((el, index) => {
   //     if(el.id === Number(req.params.id)){
   //         product[index] = req.body
@@ -666,10 +671,11 @@ app.put('/products/:id', (req, res) => {
   // })
 
   // find index of the element
-  //product ke index ko is tarah se bhi update kar sakte ha
+  // product ke index ko is tarah se bhi update kar sakte ha
   const elementIndex = product.findIndex((el) => el.id === Number(req.params.id));
   // update the element at that index
   product[elementIndex] = req.body
+  
   res.send(product);
 })
 
@@ -725,6 +731,9 @@ app.listen(PORT, () =>{
     password: '12345'
 } */
 
+
+
+
 // fetch("https://myapi.com", {
 //     method: "post",
 //     body: JSON.stringify()
@@ -770,7 +779,6 @@ app.post('/divide', (req, res) => {
 //PATCH aur DELETE ka code likha
 /*
 const express = require("express");
-
 const app = express();
 
 // to get the data from client where body is in form of json
@@ -919,20 +927,17 @@ res.send(product);
 
 })
 
-
-
 app.get("*", (req, res) => {
   console.log("not found page");
   res.send("<h3>Page Not Found !!</h3>");
 });
 
 const PORT = 5500;
-
 app.listen(PORT, () => {
   console.log(`express server running at ${PORT}`);
 });
-
 */
+
 // <===============End of Lec11March1===============>//
 //iske baad middleware padha
 //Express-V2 ka folder banaya usme index aur middleware ka file banaya

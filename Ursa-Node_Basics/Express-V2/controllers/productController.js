@@ -100,10 +100,10 @@ const createProduct = (req, res) => {
 }
 
 //product ko update kar diya jaise price by patch (http://localhost:8000/products/3) at postman
-//Lakin is  code me MVC nhi use kar rahe ha so we use other code maine ye ccode run karne ke baad models me
+//Lakin is  code me MVC nhi use kar rahe ha so we use other code maine ye code run karne ke baad models me
 //  productModel file banaya aur data ka folder banya jisme json data ha
 const updateProduct = (req, res) => {
-    console.log("params in updateProduct", req.params);//re.params is always object
+    console.log("params in updateProduct", req.params);//req.params is always object
     const { id } = req.params;
     const productIndex = products.findIndex((el) =>el.id === Number(id));
     if(productIndex !== -1){
@@ -132,6 +132,7 @@ module.exports = {
     deleteProduct,
   };
   */
+
 
 //ye Concept acche se kar lo  yaha se hi File ke under Product ko CRUD method apply kiya aur save Kiya
 //Yaha se MVC pattern follow kiya data ko data folder me dala aur model se aur model ke productModel se operation kiya
@@ -178,7 +179,7 @@ module.exports = {
 */
 
 //
-
+/*
 const {getProductData, addProductsInData,updateProductsInData} = require('../models/productModel')//import kiya 
 //is product ko hata kar model ke under ek product model ka function banaya ab waha se product lenge
 
@@ -208,7 +209,15 @@ const updateProduct = (req, res) => {
     } else {
       res.send("something went wrong!!");
     }
+    //OR
+    // const { id } = req.params;
+    // const productIndex = products.findIndex((el) =>el.id === Number(id));
+    // if(productIndex !== -1){
+    // products[productIndex] = { ...products[productIndex], ...req.body}
+    // res.send(products);
   };
+
+ 
   
   const deleteProduct = (req, res) => {};
 
@@ -218,6 +227,6 @@ module.exports = {
     updateProduct,
     deleteProduct,
   };
-
+*/
   // <====================END: Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>
   

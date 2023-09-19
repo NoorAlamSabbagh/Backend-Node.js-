@@ -11,7 +11,6 @@
 
 //
 // console.log("inside node js file"); 
-// const fs = require("fs");
 
 // console.log("start");
 
@@ -25,7 +24,8 @@
 //   console.log("immidiately called");
 // }); 
 
-
+//
+// const fs = require('fs')
 //  async function hello(){
 //   await fs.open("file1.txt", (err) => { 
 //     // console.log(err)
@@ -54,6 +54,7 @@
 // fs.open("file1.txt", () => { //2:async I/O
 //   console.log("file openned successfully");
 // });
+
 
 //
 // console.log("inside node js file"); //1(syn call)

@@ -18,7 +18,7 @@ module.exports = Product
 
 //
 //Validator seekha
-/* 
+/*
 const {Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
@@ -60,8 +60,9 @@ module.exports = Product
 //     }
 
 //<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
-// Lec21 me max code validation ka productmodel me kiya starting me userController me kiya 
+// Lec21 me max code validation ka productmodel me kiya starting me userController me kiya
 // fir uske baad Authorizarion aur authentication pada aur ExpressAuth ka folder banaya
+
 const { Schema, model } = require("mongoose");
 
 const productSchema = new Schema(
@@ -102,6 +103,7 @@ const productSchema = new Schema(
       //         return data.length>1
       //     },
       //     // message: `colors should be having more than 1 value`
+      //     //OR
       //      message: (dataInMesg) => {
       //         console.log('dataInMesg', dataInMesg);
       //         return `validation failed for colors`
@@ -110,13 +112,18 @@ const productSchema = new Schema(
 
       // 3)
       // isAsync: true, ---> deprecated(purane version me aisa tha)
+      // validate: {
+      //   validator: async (data) => {
+      //     // return Promise.resolve('data')
+      //     // return Promise.reject('data is not valid')
+      //     // return await Promise.reject('data is not valid');
+      // return await Promise.resolve(false);
+      //   }
+
+
+      // 4)
       validate: {
         validator: async (data) => {
-          // return Promise.resolve('data')
-          // return Promise.reject('data is not valid')
-          // return await Promise.reject('data is not valid');
-          // return await Promise.resolve(false);
-
           return new Promise((res, rej) => {
             // res('123')
             rej("error");

@@ -6,15 +6,17 @@
 const fs = require("fs");
 
 const getProductData = () => {
-  const data = fs.readFileSync("./data/products.json");
+  const data = fs.readFileSync("./data/products.json", "utf-8");
   console.log("data from json file", data);
 };
 
 module.exports = { getProductData }; //isko productController me import kiya
 */
 
+
 //
-/*const fs = require("fs");
+/*
+const fs = require("fs");
 
 const getProductData = () => {
   const data = fs.readFileSync("./data/products.json");//buffer format
@@ -156,7 +158,7 @@ const updateProductsInData = (id, updateData) => {
 
 
 //
-
+/*
 const fs = require("fs");
 
 const readAndParseDataFromFile = () => {
@@ -214,5 +216,5 @@ const updateProductsInData = (id, updateData) => {
   }
 
   module.exports = { getProductData, addProductsInData, updateProductsInData};
-
+*/
 // <====================END: Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>

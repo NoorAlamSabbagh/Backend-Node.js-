@@ -13,6 +13,7 @@ module.exports = { getUserList}
 /*
 const UserModel = require('../models/userModel');
 
+// http://localhost/5800/user
 const getUserList = (req, res) =>{
   // res.send('User List')
   UserModel.find()
@@ -24,10 +25,11 @@ const getUserList = (req, res) =>{
   })
 }
 
+// http://localhost:5800/user/singleUser
 const getUser = (req,res) => {
   // always return you a list
-  // UserModel.find({name: 'Student1'})
-  UserModel.find({email: 'student2@gmail.com'})
+  // UserModel.find({name: 'Student5'})
+  UserModel.find({email: 'student5@gmail.com'})
  .then((data) => {
    res.send(data)
  })
@@ -65,6 +67,7 @@ module.exports = { getUserList, createUser, getUserAddress, getUserOrders, getUs
 /*
 const UserModel = require("../models/userModel");
 
+// http://localhost:5800/user
 const getUserList = (req, res) => {
   // res.send('User List')
   UserModel.find()
@@ -88,15 +91,16 @@ const getUser = (req, res) => {
   // });
 
   //2)
+  // http://localhost:5800/user/singleUser
   //json array
-  // UserModel.find({email:'student2@gmail.com'})
+  // UserModel.find({email:'student5@gmail.com'})
   // .then((data) => {
   //   res.send(data)
   // })
 
   //3)
   // return the first match (json object)
-  // UserModel.findOne({ age: 25, name: "Student1" })
+  // UserModel.findOne({ age: 24, name: "Student11" })
   // .then((data) => {
   //   res.send(data);
   // });
@@ -211,13 +215,13 @@ const getUser = (req, res) => {
   // })
 
   //16)
-  UserModel.find({ $nor: [{ age: 25 }, { name: "Student1" }] })
-    .select({ name: 1, age: 1 })
-    .skip(3)
-    // UserModel.find().select({email:1})
-    .then((data) => {
-      res.send(data);
-    });
+  // UserModel.find({ $nor: [{ age: 25 }, { name: "Student1" }] })
+  //   .select({ name: 1, age: 1 })
+  //   .skip(3)
+  //   // UserModel.find().select({email:1})
+  //   .then((data) => {
+  //     res.send(data);
+  //   });
 };
 
 //
@@ -259,7 +263,7 @@ const getUserOrders = (req, res) => {
 const updateUser = (req, res) => {
   console.log("params", req.params);
 
-  //1)
+  // 1)http://localhost:5800/user/648b666b4951cee4e0b19be0
   // UserModel.findByIdAndUpdate(req.params.id,
   // { $set: req.body },
   // {new: true})//used for getting updated data
@@ -268,20 +272,20 @@ const updateUser = (req, res) => {
   //   res.send(data);
   // });
 
-  //2)
-  // UserModel.updateOne({ email: req.params.email }, req.body, {
-  //     upsert: true, // it will create the data if not found
-  //   }).then((data) => {
-  //     console.log("data", data);
-  //     res.send(data);
-  //   });
+  //2)http://localhost:5800/user/student13@gmail.com
+  UserModel.updateOne({ email: req.params.email }, req.body, {
+      upsert: true, // it will create the data if not found
+    }).then((data) => {
+      console.log("data", data);
+      res.send(data);
+    });
 
   //3)
   // http://localhost:5800/user/student7@gmail.com
-  UserModel.updateMany({ password: "12345" }, req.body).then((data) => {
-    console.log(data);
-    res.send(data);
-  });
+  // UserModel.updateMany({ password: "12345" }, req.body).then((data) => {
+  //   console.log(data);
+  //   res.send(data);
+  // });
 };
 
 module.exports = {
@@ -296,6 +300,7 @@ module.exports = {
 //<======================End: Lec19March14=================================>
 
 //<=======================Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
+
 const UserModel = require("../models/userModel");
 
 const getUserList = (req, res) => {
@@ -455,7 +460,8 @@ const getUser = (req, res) => {
   // 17)
   // Lec 20 ka code kiya yaha se
   // $options denote typecaste of letter like small and capital letter
-  // UserModel.find({ email: { $regex: /^s/, $options: "i" } }) //start with ^ and s$ end with
+  // http://localhost:5800/user/singleUser
+  // UserModel.find({ email: { $regex: /^s/, $options: "i" } }) //start with ^ and $ end with
   // .then(
   //   (data) => {
   //     res.send(data);
@@ -479,7 +485,7 @@ const getUser = (req, res) => {
   //   res.send(data);
   // });
 
-  //2)
+  //2)http://localhost:5800/user/singleuser?page=2&limit=5
   //   const { limt, page } = req.query
   //    UserModel.paginate({}, {limit: 2, page: 2})
   //  .then((data) => {
@@ -487,9 +493,9 @@ const getUser = (req, res) => {
   //     res.send(data);
   //   });
 
-  // 3)
+  // 3)http://localhost:5800/user/singleuser?page=2&limit=5
   const { limt, page } = req.query;
-  UserModel.paginate({ email: { $regex: /4@Mail.com$/, $options: "i" }},    { limit: 3, page: 1 })
+  UserModel.paginate({ email: { $regex: /@gmail.com$/, $options: "i" }},    { limit: 3, page: 1 })
   .then((data) => {
         console.log(data);
         res.send(data);
@@ -577,9 +583,15 @@ const deleteUser = async (req, res) => {
   console.log("params", req.params);
   const { id } = req.params;
 
-  // 1)
+  //0)http://localhost:5800/user/648b666b49
+  // UserModel.findByIdAndDelete(id)
+  // .then((data)=>{
+  //   res.send(data)
+  // })
+
+  // 1)http://localhost:5800/user/email
   // try {
-  //   const result = await UserModel.deleteOne({ email: "student7@gmail.com" });
+  //   const result = await UserModel.deleteOne({ email: "student13@gmail.com" });
   //   console.log(result);
   //   res.send("user deleted successfully");
   // } catch (err) {

@@ -8,6 +8,7 @@ const getProducts = (req, res)=>{
     })
 }
 
+// http://localhost:5800/product
 const createProducts = (req, res)=>{
 ProductModel.create(req.body)
 .then((data)=>{

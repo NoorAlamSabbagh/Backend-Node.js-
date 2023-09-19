@@ -1,15 +1,15 @@
 // <===============Lec11March1: Building Restful API using Express-CRUD for Ecommerce API===============>//
 
 //1)
-// const checkLogInStatus = (req, res, next) => {
-//     // check the username
-//     // match password
-//     console.log("running checkLogInStatus")
-//     next();
-//     };
-
-// module.exports = { checkLogInStatus };
-
+/*
+const checkLogInStatus = (req, res, next) => {
+    // check the username
+    // match password
+    console.log("running checkLogInStatus")
+    next();
+    };
+*/
+  
 //
 /*
 const checkLogInStatus = (req, res, next) => {
@@ -31,7 +31,7 @@ module.exports = { checkLogInStatus };
 const checkLogInStatus = (req, res, next) => {
     // check the username
     // match password
-    console.log("running checkLogInStatus in middleware")
+    console.log("running checkLogInStatus in middleware ")
     if(req.path === '/product'){
     next();
     }else{
@@ -45,5 +45,8 @@ const checkUser = (req, res, next) => {
 }
 
 module.exports = { checkLogInStatus, checkUser }; 
+
+
+
 
 // <===============END: Lec11March1: Building Restful API using Express-CRUD for Ecommerce API===============>//

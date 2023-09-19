@@ -27,12 +27,13 @@ app.get ('/orders', (req,res) =>{
 app.listen(5800, () =>{
     console.log(`app running at 5800`)
 })
-//Iske baad midleware me code likha
 */
+//Iske baad midleware me code likha
+
 
 //check code in middleware 2 code to realted this code
-//2)
 /*
+//2)
 const express = require('express');
 
 const app = express();
@@ -332,6 +333,7 @@ app.listen(PORT, () =>{
 })
 */
 
+
 //
 /*
 const express = require('express');
@@ -405,12 +407,7 @@ const PORT = process.env.PORT || 5800
 app.listen(PORT, () =>{
     console.log(`app running on ${PORT}`)//maine bs 
 })
-
-// 
-// I am hiding my port
-// app.listen(process.env.PORT, () =>{
-//     console.log(`app running at ${process.env.PORT}`)//maine bs 
-// })
+*/
 
 
 //Routes ka folder  banaya productRoutes se code start kiya
@@ -418,14 +415,14 @@ app.listen(PORT, () =>{
 
 
 // <======================END: Lec12March2-Introducing routes and Router, middleware in express,mvc architecture==========>
-*/
+
 
 
 //
 // <====================Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>
 //Iske bina apna controller ka productController kaam nhi karega
+/*
 const express = require('express');
-
 const app = express();
 
 //after installing dotenv
@@ -457,6 +454,6 @@ const PORT = process.env.PORT || 5800
 app.listen(PORT, () =>{
     console.log(`app running on ${PORT}`)
 })
-
+*/
 
 // <====================END: Lec13March3-Adding Controllers. Adding Models, storing data in files via model==========>

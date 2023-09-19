@@ -1,12 +1,12 @@
 //<===============Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments=============>
-/*
+
 const auth = (req, res, next)=> {
 console.log('from Auth middleware');
 next()
 }
 
 module.exports = {auth}
-*/
+
 
 //
 /*
@@ -35,6 +35,8 @@ if(authorization){
     */
 
 //Is code me authorization ka code likha
+
+/*
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/userModel");
 
@@ -79,4 +81,5 @@ const roleBasedAuthrisation = (req, res, next) => {
 };
 
 module.exports = {auth, roleBasedAuthrisation}
+*/
 //<===============END: Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments=============>

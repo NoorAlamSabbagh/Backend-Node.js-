@@ -1,9 +1,12 @@
 //<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
-/*
+//<=======================Lec22March Same code ha aur userController se start kiya===============>
+// <======================Lec23March18:Authentication & Authorisation, Using Lodash, Storing secrets in environments============>
+
 const express = require('express');
+const app = express();
+
 const dotenv = require('dotenv');
 dotenv.config();
-const app = express();
 require('./connectDb')
 
 app.use(express.json()) //iske bina body undefined show karega
@@ -16,8 +19,12 @@ const PORT = process.env.PORT
     app.listen(PORT, ()=>{
         console.log(`auth server running at ${PORT}`);
     })
-    */
+    
 //<===============End of Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
+
+
+// <======================Lec24 March19: SSR  using Templates Engines, handling unhandled rejections And CSR ================>
+/*
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors')
@@ -48,14 +55,6 @@ const PORT = process.env.PORT
     app.listen(PORT, ()=>{
         console.log(`auth server running at ${PORT}`);
     })
-
+*/
 // <======================Lec24 March19: SSR  using Templates Engines, handling unhandled rejections And CSR ================>
 
-
-
-
-
-
-
-
-// <======================END: Lec24 March19: SSR  using Templates Engines, handling unhandled rejections And CSR ================>

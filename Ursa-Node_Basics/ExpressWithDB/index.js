@@ -22,24 +22,19 @@ app.listen(PORT, ()=>{
 //lec 19 me index me koi code nhi likha
 /*
 const express = require('express');
-const {getUserList} =require("./src/controllers/userControllers");
 const app = express();
 
 const userRouter = require('./src/routes/userRoutes')
-
 app.use(express.json())//middleware to read your json from your postman and console it on your terminal as obj format
 
-app.use('/user', userRouter)
-require('./dbConnection')
+app.use('/user', userRouter);
+require('./dbConnection');
 
 //product
 // app.get('/product', () =>{
-    
 // })
 // app.get('/product/clothing', () =>{
-
 // })
-
 
 const PORT = 5800
 app.listen(PORT, ()=>{
@@ -50,21 +45,18 @@ app.listen(PORT, ()=>{
 
 //
 //<=======================Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
+//<=======================Lec21March16:Mongoose Modelling, custom valodators, Async Validators, Validation errors=============>
 const express = require("express");
 const {getUserList} = require("./src/controllers/userControllers");
-
 const app = express();
 
 const userRouter = require('./src/routes/userRoutes')
 //lec20
 const productRouter = require('./src/routes/productRoute')
-//
 
 app.use(express.json())//middleware to read your json from your postman and console it on your terminal as obj
 app.use('/user', userRouter)
-
-//
-app.use('/product', productRouter)
+app.use('/product', productRouter)//http://localhost:5800/product
 //
 
 require('./dbConnection')//dbConnection ko connect kiya
@@ -75,25 +67,14 @@ require('./dbConnection')//dbConnection ko connect kiya
 // //is pure code ko userRoute me routes me likhenge
 // app.get('/user', getUserList);//reading a user
 // app.post('/user',()=>{
-    
 // })
-// app.get('/user/address', ()=>{
-    
-// })
-// app.get('/user/orders', ()=>{
-
-// })
-
 
 //products
 // product routes ki tarah bhi kar sakte ha
 // app.get('/product', ()=>{
-    
 // })
 // app.get('/product/clothing', ()=>{
-
 // })
-
 
 const PORT = 5800;
 app.listen(PORT,()=>{

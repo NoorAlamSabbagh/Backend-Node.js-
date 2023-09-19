@@ -7,7 +7,7 @@
 //     console.log('user logged in successfully');
 // })
 // Login.emit('Success')//Event ko raise kiya
-// // Login.emit('error')//predefined event banaya hi nhi to run nhi karega
+// Login.emit('error')//predefined event banaya hi nhi to run nhi karega
 
 
 
@@ -57,16 +57,13 @@ Login.addListener('error', () => {
 // const Login = new Event();//evenlistner
 
 // //1 Listener
-
 // Login.addListener('success', (username, country) => {//callback
 //     console.log(`${username} logged in successfully ${country}`);
 // })
-
 // //2 Listener
 // Login.addListener('success', ()=> {
 //     console.log('added the logs in file');
 // })
-
 // Login.addListener('error', () => {
 //     console.log('error while logging in user');
 // })
@@ -136,9 +133,9 @@ Login.addListener('error', () => {
 
 //<======================= Lec7Feb23: Creating and working files, Events module, Emitting Events====================================>//
 
-const Event = require('events');
+// const Event = require('events');
 
-//
+// //
 // const SignUp = new Event();
 // // runs only one time
 // const successSignup = () =>{

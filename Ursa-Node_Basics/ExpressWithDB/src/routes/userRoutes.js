@@ -3,10 +3,10 @@
 const express = require("express");
 const {
   getUserList,
+  getUser,
   createUser,
   getUserAddress,
   getUserOrders,
-  getUser,
 } = require("../controllers/userControllers");
 
 const router = express.Router();
@@ -19,6 +19,7 @@ router.get("/singleUser", getUser);//for single user(filtering)
 //     res.send('creating user')
 // })
 //createuser ko usercontroller me call kiya 
+// http://localhost/5800/user
 router.post("/", createUser);
 
 //
@@ -80,6 +81,7 @@ module.exports = router;
 
 //<===============Lec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>
 //deleteUser ka routes likha is code me
+
 const express = require("express");
 const {
   getUserList,
@@ -103,4 +105,5 @@ router.patch('/:email', updateUser)//for email
 router.delete('/:id', deleteUser)
 
 module.exports = router;
+
 //<===============End ofLec20March15:Crud op using mongoose & MongoDB, Data Validation, Pagination, Deleting=============>

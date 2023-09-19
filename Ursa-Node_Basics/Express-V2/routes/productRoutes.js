@@ -1,11 +1,12 @@
 // <======================Lec12March2-Introducing routes and Router, middleware in express,mvc architecture==========>
-/*const express = require('express');
+/*
+const express = require('express');
 
 const router = express.Router();
 
-// http://localhost:8000/product//base route ho gaya in sabhi ka
+// http://localhost:8000/products//base route ho gaya in sabhi ka
 // kyoki maine index.js me //app.use('/products', productRouter) kiya ha
-router.get('/',(req,res)=>{
+router.get('/products',(req,res)=>{
   res.send('All product list')
 })
 
@@ -21,6 +22,7 @@ router.get('/cloth',(req,res)=>{
 
 module.exports = router
 */
+
 
 //
 // kuch is tarah likh rahe the index file me
@@ -158,7 +160,7 @@ module.exports = router
 */
 
 //
-
+/*
 const express = require('express');
 
 const router = express.Router();
@@ -185,8 +187,7 @@ router.route('/:id')//product ko update karne ke liye id use kiya as param
 
 // module.exports = {router}//multiple things from one file then use this code
 module.exports = router
-
-
+*/
 
 //
 // const a = 10

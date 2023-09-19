@@ -57,6 +57,7 @@ module.exports = {
 /*
 const User = require("../models/userModel");
 
+// http://localhost:7500/user/all
 const getAllUsers = (req, res) => {
   // res.send('User List')
   //Read Operation
@@ -71,7 +72,7 @@ const getAllUsers = (req, res) => {
 };
 
 //Isko req.params se get kiya
-// http://localhost:7500/user/Alam@gmail.com
+// http://localhost:7500/user/alam@gmail.com
 const getUserByEmail = (req, res) => {
   console.log("params", req.params);
   const { email } = req.params
@@ -130,6 +131,7 @@ module.exports = {
 /*
 const User = require("../models/userModel");
 
+// http://localhost:7500/user/all
 const getAllUsers = (req, res) => {
   // res.send('User List')
   //Read Operation
@@ -145,7 +147,7 @@ const getAllUsers = (req, res) => {
 };
 
 //Isko req.params se get kiya
-// http://localhost:7500/user/Alam@gmail.com
+//http://localhost:7500/user/alam@gmail.com
 const getUserByEmail = (req, res) => {
   console.log("params", req.params);
   const { email } = req.params
@@ -173,7 +175,7 @@ const getUserByEmail = (req, res) => {
 };
 
 //Isko req.querry se get kiya
-// http://localhost:7500/user?age=25
+// http://localhost:7500/user?age=24
 const getUserByAge = (req, res) => {
     // console.log('params', req.params);
     console.log('params', req.query);
@@ -244,13 +246,13 @@ const getAllUsers = (req, res) => {
 };
 
 //Isko req.params se get kiya
-// http://localhost:7500/user/Alam@gmail.com
+// http://localhost:7500/user/noor@gmail.com
 const getUserByEmail = (req, res) => {
   console.log("params", req.params);
   const { email } = req.params
   //returns an array
   // User.find({email})
-  User.findOne({email, age: 25})
+  User.findOne({email, age: 24})
   .then((user)=>{
     console.log('user found')
     res.send(user)
@@ -273,7 +275,7 @@ const getUserByEmail = (req, res) => {
 };
 
 //Isko req.querry se get kiya
-// http://localhost:7500/user?age=25
+// http://localhost:7500/user?age=24
 const getUserByAge = (req, res) => {
     // console.log('params', req.params);
     console.log('params', req.query);
@@ -323,9 +325,10 @@ module.exports = {
   getUserByEmail,
   getUserByAge
 };
-*/
 
+*/
 //
+
 /*
 const User = require("../models/userModel");
 
@@ -344,13 +347,13 @@ const getAllUsers = (req, res) => {
 };
 
 //Isko req.params se get kiya
-// http://localhost:7500/user/Alam@gmail.com
+// http://localhost:7500/user/noor@gmail.com
 const getUserByEmail = (req, res) => {
   console.log("params", req.params);
   const { email } = req.params
   // find returns an array
   // User.find({email})
-  User.findOne({email, age: 25})
+  User.findOne({email, age: 24})
   .then((user)=>{
     console.log('user found')
     res.send(user)
@@ -403,7 +406,7 @@ const getUserByAge = (req, res) => {
 //   })
 
 //to select some specific fields from doc
-// User.find({age: req.query.age}).select('username ')//to select specific 
+// User.find({age: req.query.age}).select('username')//to select specific 
 // User.find({age: req.query.age}).select('username email')//to select specific 
 // .then((user)=>{
 //   console.log('user found')
@@ -457,14 +460,16 @@ module.exports = {
   getUserByAge
 };
 */
-
 //<========================End Lec15March6=================================================================>
 
 //<====================Lec16March9: Comparision Query Operators, Logical Query Operators===================>
 /*
+
 const User = require('../models/userModel');
 const Player = require('../models/PlayerModel');
 
+
+// http://localhost:7500/user/all
 const getAllUsers = (req, res) => {
     // Read Operation
     console.log('getting all users');
@@ -478,11 +483,12 @@ const getAllUsers = (req, res) => {
     })
 }
 
+// http://localhost:7500/user/noor@gmail.com
 const getUserByEmail = (req, res) => {
     console.log('params',req.params); 
     const {email} = req.params
     // returns an array 
-    User.find({email, age: 28})
+    User.find({email, age: 24})
     .then((user) => {
         console.log('user found');
         res.send(user)
@@ -497,11 +503,11 @@ const getUserByEmail = (req, res) => {
 }
 
 
-
+// http://localhost:7500/user?age=24
 const getUserByAge = (req, res) => {
     console.log('params',req.query); 
-    // const {age} = req.params
-    //returns an array of documents matching the conditions
+    const {age} = req.params
+    // returns an array of documents matching the conditions
     // User.find({age:req.query.age})
     // .then((user) => {
     //     console.log('user found');
@@ -515,6 +521,7 @@ const getUserByAge = (req, res) => {
     //     console.log('user found');
     //     res.send(user)
     // })
+
 
 
      // to select some specific fields from doc
@@ -563,14 +570,16 @@ const getUserByAge = (req, res) => {
     //  })
 
     //
-    User.find()
-    // .count()
-    .countDocuments()
-    .then((userCount) => {
-        console.log('user found');
-        res.send({count: userCount})
-    })
+    //This code will show number of documents count
+    // User.find()
+    // // .count()
+    // .countDocuments()
+    // .then((userCount) => {
+    //     console.log('user found');
+    //     res.send({count: userCount})
+    // })
  
+    //
     //  User.find({age: req.query.age}).select({username: 1, age: 1}).limit(4)
     //  .then((user) => {
     //      console.log('user found');
@@ -617,10 +626,13 @@ const getPlayers = (req, res) => {
   //   res.send(player)
   // })
 
-  Player.find({score: 150})
+  // Player.find({score: 115})
+  Player.find({name: "Virat Kholi"})
   .then((player) => {
     res.send(player)
   })
+
+  
 
 }
 module.exports = {
@@ -638,6 +650,7 @@ module.exports = {
 const User = require("../models/userModel");
 const Player = require("../models/PlayerModel");
 
+// http://localhost:7500/user/all
 const getAllUsers = (req, res) => {
   // Read Operation
   console.log("getting all users");
@@ -651,11 +664,12 @@ const getAllUsers = (req, res) => {
     });
 };
 
+// http://localhost:7500/user/noor@gmail.com
 const getUserByEmail = (req, res) => {
   console.log("params", req.params);
   const { email } = req.params;
   // returns an array
-  User.find({ email, age: 28 }).then((user) => {
+  User.find({ email, age: 24 }).then((user) => {
     console.log("user found");
     res.send(user);
   });
@@ -668,10 +682,11 @@ const getUserByEmail = (req, res) => {
   // })
 };
 
+// http://localhost:7500/user?age=24
 const getUserByAge = (req, res) => {
   console.log("params", req.query);
   // const {age} = req.params
-  //returns an array of documents matching the conditions
+  // returns an array of documents matching the conditions
   // User.find({age:req.query.age})
   // .then((user) => {
   //     console.log('user found');
@@ -730,20 +745,20 @@ const getUserByAge = (req, res) => {
   //      res.send(user)
   //  })
 
-  //
-  User.find()
-    // .count()
-    .countDocuments()
-    .then((userCount) => {
-      console.log("user found");
-      res.send({ count: userCount });
-    });
+  //no of documents count
+  // User.find()
+  //   // .count()
+  //   .countDocuments()
+  //   .then((userCount) => {
+  //     console.log("user found");
+  //     res.send({ count: userCount });
+  //   });
 
-  //  User.find({age: req.query.age}).select({username: 1, age: 1}).limit(4)
-  //  .then((user) => {
-  //      console.log('user found');
-  //      res.send(user)
-  //  })
+   User.find({age: req.query.age}).select({username: 1, age: 1}).limit(4)
+   .then((user) => {
+       console.log('user found');
+       res.send(user)
+   })
 };
 
 //
@@ -775,63 +790,87 @@ const createMultiplePlayers = (req, res) => {
   });
 };
 
+// http://localhost:7500/user/player
 const getPlayers = (req, res) => {
   // Player.find()
   // .then((player) => {
   //   res.send(player)
   // })
-  // Player.find({score: 150})
+
+  //1)
+  // Player.find({score: 115})
   // .then((player) => {
   //   res.send(player)
   // })
+
+  //2)
   // Player.find({score: {$gt:50}}) //$gt:greater than>50
   // .then((player)=>{
   //     res.send(player)
   // })
+
+
+  //3)
   //  Player.find({score: {$gte:50}}) //$gt:greater than >=50
   //     .then((player)=>{
   //         res.send(player)
   //     })
+
+  //4)
   // Player.find({score: {$lt:50}}) //$lt:less than<50
   // .then((player)=>{
   //     res.send(player)
   // })
-  //
+
+  //5)
   // Player.find({score: {$lte:50}}) //$gt:greater than <=50
   // .then((player)=>{
   //     res.send(player)
   // })
+
+  //6)
   // Player.find({score: {$ne: 50}})
   // .then((player) => {
   //     res.send(player)
   // })
+
+  // 7)
   // Player.find({score: {$in: [6, 46, 62]}})
   // .then((player) => {
   //     res.send(player)
   // })
+
+  //8)
   // Player.find({score: {$nin: [50]}})
   // .then((player) => {
   //     res.send(player)
   // })
+
+  //9)
   // logical operators ---> AND, OR, NOR, NOT
-  // Player.find({ $and: [{ team: "Aus" }, { score: 62 }] }).then(
+  // Player.find({ $and: [{ team: "Australia" }, { score: 15 }] }).then(
   //   (player) => {
   //     res.send(player);
   //   }
   // );
-  // Player.find({$or: [{team: 'Aus'}, {score: 50}]})
+
+  //10)
+  // Player.find({$or: [{team: 'Australia'}, {score: 50}]})
   // .then((player) => {
   //     res.send(player)
   // })
+
+
   // neglect cases(whether the team India or Australia)
+//11)
   // Player.find({team: {$regex: 'Aus|India'}})
   // Player.find({team: {$regex: 'Aus|NewzLand', $options: 'i'}})//optinos typecast se bachne ke liye use kiya ha
   // .then((player) => {
   //     res.send(player)
   // })
 
-  // // Player.find({team: {$regex: /land/, $options: 'i'}})//include Tra
-  // // Player.find({name: {$regex: /^M/, $options: 'i'}})//for start with ^ R
+  // Player.find({team: {$regex: /dia/, $options: 'i'}})//include Tra
+  // Player.find({name: {$regex: /^M/, $options: 'i'}})//for start with ^ R
   // Player.find({team: {$regex: /a$/, $options: 'i'}})//for end with  $a
   // .then((player) => {
   //     res.send(player)
@@ -843,10 +882,10 @@ const getPlayers = (req, res) => {
   // })
 
   // ends with sharma
-  Player.find({name: {$regex: /Sharma$/, $options: 'i'}})
-  .then((player) => {
-      res.send(player)
-  })
+  // Player.find({name: {$regex: /Sharma$/, $options: 'i'}})
+  // .then((player) => {
+  //     res.send(player)
+  // })
   
 };
 

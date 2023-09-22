@@ -23,7 +23,7 @@ const getProfile = () => {
   fetch("http://localhost:6800/user/profile",{
     headers: {
         authorization: 
-        "Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTBhMTM3MDBhZGYzMzc4MmI4ZDgxMSIsImVtYWlsIjoibnVwdXJAZ21haWwuY29tIiwiaWF0IjoxNjg3MjAwMTI4fQ.EcjGSyZ_c-WZckuOXJmIOznYfJmnnJDVOZxxCGgDXRk"
+        "Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGIxZmRiNjY4ZmI5NzE1MWQ3Y2U3OCIsImVtYWlsIjoibmVoYWxAZ21haWwuY29tIiwiaWF0IjoxNjk1MjQzODI0fQ.Av_Te49dFAgH4Qa2u4jmmwhjLeXjfl36QxGSBvPPyXw"
     }
   })
     .then((res) => {
